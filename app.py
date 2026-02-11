@@ -23,6 +23,14 @@ SOCIAL_LINKS = [
     {"name": "GitHub", "url": "https://github.com/dylanhebert"},
 ]
 
+SOUNDCLOUD_TRACKS = [
+    {
+        "title": "Track Title",
+        "url": "https://soundcloud.com/your-profile/your-track",
+        "color": "violet",
+    },
+]
+
 GAME_MODS = [
     {
         "name": "Dead High",
@@ -53,7 +61,7 @@ GAME_MODS = [
 
 @app.route("/")
 def index():
-    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_mods=GAME_MODS)
+    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_mods=GAME_MODS, soundcloud_tracks=SOUNDCLOUD_TRACKS)
 
 
 @app.route("/robots.txt")
