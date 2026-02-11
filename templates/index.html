@@ -57,8 +57,8 @@
         {% if mod.slideshow %}
         <!-- Dead High Showcase -->
         <a href="{{ mod.url }}" target="_blank" rel="noopener"
-           class="scroll-reveal scroll-delay-1 group block bg-white dark:bg-gray-900 rounded-xl overflow-hidden border-2 border-red-500/30 dark:border-red-500/20 shadow-sm hover:shadow-lg transition-all duration-300">
-            <div class="relative aspect-video overflow-hidden bg-gray-900">
+           class="scroll-reveal scroll-delay-1 group block bg-white dark:bg-gray-900 rounded-xl border-2 border-red-500/30 dark:border-red-500/20 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="relative aspect-video rounded-t-[10px] overflow-hidden bg-gray-900">
                 <!-- Rotating slideshow -->
                 <div class="slideshow-container absolute inset-0">
                     {% for img in mod.slideshow %}
