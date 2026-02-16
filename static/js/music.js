@@ -116,8 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function buildLogBins(bufferLength, numBars) {
         var minBin = 2;
+        // Cap at ~16kHz (bin 370 at 44.1kHz with fftSize 1024) so top bars have audible energy
+        var maxBin = Math.min(bufferLength, Math.floor(bufferLength * 0.72));
         var logMin = Math.log(minBin);
-        var logMax = Math.log(bufferLength);
+        var logMax = Math.log(maxBin);
         var rawBins = [];
         for (var i = 0; i < numBars; i++) {
             var startLog = logMin + (logMax - logMin) * (i / numBars);
@@ -125,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
             var start = Math.floor(Math.exp(startLog));
             var end = Math.max(start + 1, Math.floor(Math.exp(endLog)));
             rawBins.push({
-                start: Math.min(start, bufferLength - 1),
-                end: Math.min(end, bufferLength),
+                start: Math.min(start, maxBin - 1),
+                end: Math.min(end, maxBin),
             });
         }
         // Deduplicate: collapse bars that map to the same FFT range
@@ -464,6 +466,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // ── Visibility change: pause/resume to prevent speed-up on mobile ──
+    var wasPlayingBeforeHide = false;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            if (activeIndex !== null && players[activeIndex] && players[activeIndex].ws.isPlaying()) {
+                wasPlayingBeforeHide = true;
+                pauseTrack();
+            } else {
+                wasPlayingBeforeHide = false;
+            }
+        } else {
+            if (wasPlayingBeforeHide && activeIndex !== null && players[activeIndex]) {
+                wasPlayingBeforeHide = false;
+                playTrack(activeIndex);
+            }
+        }
+    });
 
     // ── Canvas resize ──
     window.addEventListener("resize", function () {
