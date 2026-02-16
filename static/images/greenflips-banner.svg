@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg)" rx="0"/>
+  <text x="300" y="155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="700" fill="#fff" letter-spacing="-1">Green Flips</text>
+  <text x="300" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#fef3c7">OSRS Grand Exchange Flip Tracker</text>
+</svg>

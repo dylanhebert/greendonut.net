@@ -17,6 +17,13 @@ PROJECTS = [
         "image": "chattyfoods-banner.svg",
         "color": "emerald",
     },
+    {
+        "name": "Green Flips",
+        "description": "Real-time Grand Exchange flip tracker for Old School RuneScape.",
+        "url": "https://flips.greendonut.net",
+        "image": "greenflips-banner.svg",
+        "color": "amber",
+    },
 ]
 
 SOCIAL_LINKS = [
