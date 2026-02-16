@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Green Donut{% endblock %}</title>
-    <meta name="description" content="Portfolio of Green Donut. Software projects, video game dev, and other creations.">
+    <meta name="description" content="Portfolio of Green Donut. Software projects, game dev, music, and other creations.">
     <meta property="og:title" content="Green Donut">
-    <meta property="og:description" content="Portfolio of Green Donut. Software projects, video game dev, and other creations.">
+    <meta property="og:description" content="Portfolio of Green Donut. Software projects, game dev, music, and other creations.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Green Donut">
-    <meta name="twitter:description" content="Portfolio of Green Donut. Software projects, video game dev, and other creations.">
+    <meta name="twitter:description" content="Portfolio of Green Donut. Software projects, game dev, music, and other creations.">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <meta name="theme-color" content="#22c55e" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
@@ -59,6 +59,8 @@
     </script>
     <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/scroll.js') }}" defer></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js" defer></script>
+    <script src="{{ url_for('static', filename='js/music.js') }}" defer></script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen transition-colors overflow-x-hidden">
     <!-- Animated background blobs -->
@@ -81,6 +83,7 @@
             <div id="nav-links" class="flex items-center gap-6 ml-auto">
                 <a href="#projects" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Projects</a>
                 <a href="#games" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Games</a>
+                <a href="#music" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Music</a>
                 <a href="#about" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">About</a>
                 <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
                     <svg id="theme-icon-light" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,6 +106,7 @@
             <div class="flex items-center gap-4">
                 <a href="#projects" class="hover:text-gray-900 dark:hover:text-white transition-colors">Projects</a>
                 <a href="#games" class="hover:text-gray-900 dark:hover:text-white transition-colors">Games</a>
+                <a href="#music" class="hover:text-gray-900 dark:hover:text-white transition-colors">Music</a>
                 <a href="#about" class="hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
             </div>
             <span class="flex items-center gap-1.5"><a href="/"><img src="{{ url_for('static', filename='images/greendonutlogo.png') }}" alt="Green Donut" class="w-5 h-5 hover:rotate-12 transition-transform duration-300"></a>&copy; 2026</span>

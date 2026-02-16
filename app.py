@@ -1,6 +1,17 @@
+import json
+import os
+
 from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
+
+
+def load_music():
+    json_path = os.path.join(os.path.dirname(__file__), "data", "music.json")
+    with open(json_path) as f:
+        tracks = json.load(f)
+    audio_dir = os.path.join(os.path.dirname(__file__), "static", "audio")
+    return [t for t in tracks if os.path.isfile(os.path.join(audio_dir, t["file"]))]
 
 PROJECTS = [
     {
@@ -61,7 +72,7 @@ GAME_DEV = [
 
 @app.route("/")
 def index():
-    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_dev=GAME_DEV)
+    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_dev=GAME_DEV, music=load_music())
 
 
 @app.route("/robots.txt")
