@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Donut body with bite -->
-  <path d="M50 5 A45 45 0 1 1 50 95 A45 45 0 1 1 50 5 Z" fill="#22c55e" />
-  <path d="M50 25 A25 25 0 1 1 50 75 A25 25 0 1 1 50 25 Z" fill="white" />
-  <!-- Bite taken out (top-right) -->
-  <circle cx="78" cy="22" r="16" fill="white" />
-</svg>
