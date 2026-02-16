@@ -19,12 +19,12 @@
   <rect width="600" height="340" fill="url(#bg)"/>
   <rect x="1" y="1" width="598" height="338" fill="none" stroke="#d4a017" stroke-opacity="0.12" rx="4"/>
   <!-- Title -->
-  <text y="155" text-anchor="middle" font-family="'MedievalSharp'" font-size="56">
+  <text y="160" text-anchor="middle" font-family="'MedievalSharp'" font-size="80">
     <tspan x="300" fill="#4ade80">Green</tspan>
     <tspan fill="url(#gold)"> Flips</tspan>
   </text>
   <!-- Tagline -->
-  <text x="300" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#8a7a60">OSRS Grand Exchange Flip Tracker</text>
+  <text x="300" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#8a7a60">OSRS Grand Exchange Flip Tracker</text>
   <!-- Decorative line -->
-  <line x1="200" y1="220" x2="400" y2="220" stroke="#d4a017" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="175" y1="240" x2="425" y2="240" stroke="#d4a017" stroke-opacity="0.25" stroke-width="1"/>
 </svg>
