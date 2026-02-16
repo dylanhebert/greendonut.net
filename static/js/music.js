@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ── Helpers ──
     function getColors() {
-        var isDark = document.documentElement.classList.contains("dark");
+        var style = getComputedStyle(document.documentElement);
         return {
-            waveColor: isDark ? "#404040" : "#d4d4d4",
-            progressColor: isDark ? "#22c55e" : "#16a34a",
-            barColor: isDark ? "#22c55e" : "#16a34a",
+            waveColor: style.getPropertyValue("--color-wave").trim(),
+            progressColor: style.getPropertyValue("--color-wave-progress").trim(),
+            barColor: style.getPropertyValue("--color-viz-bar").trim(),
         };
     }
 
@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function highlightActiveRow(index) {
         trackRows.forEach(function (row) {
-            row.classList.remove("bg-green-50", "dark:bg-green-950/30");
+            row.classList.remove("bg-th-accent-hl");
         });
         if (index !== null && players[index]) {
-            players[index].row.classList.add("bg-green-50", "dark:bg-green-950/30");
+            players[index].row.classList.add("bg-th-accent-hl");
         }
     }
 
@@ -489,18 +489,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ── Theme sync ──
-    var themeToggle = document.getElementById("theme-toggle");
-    if (themeToggle) {
-        themeToggle.addEventListener("click", function () {
-            setTimeout(function () {
-                var colors = getColors();
-                Object.keys(players).forEach(function (key) {
-                    players[key].ws.setOptions({
-                        waveColor: colors.waveColor,
-                        progressColor: colors.progressColor,
-                    });
+    window.addEventListener("themechange", function () {
+        setTimeout(function () {
+            var colors = getColors();
+            Object.keys(players).forEach(function (key) {
+                players[key].ws.setOptions({
+                    waveColor: colors.waveColor,
+                    progressColor: colors.progressColor,
                 });
-            }, 50);
-        });
-    }
+            });
+        }, 50);
+    });
 });

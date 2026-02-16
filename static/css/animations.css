@@ -11,17 +11,14 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(70px);
-    opacity: 0.3;
-}
-
-.dark .blob {
-    opacity: 0.15;
+    opacity: var(--blob-opacity, 0.3);
+    transition: opacity 0.3s ease, background 0.3s ease;
 }
 
 .blob-1 {
     width: 550px;
     height: 550px;
-    background: radial-gradient(circle, #a78bfa, #7c3aed); /* violet */
+    background: radial-gradient(circle, var(--blob-1-inner), var(--blob-1-outer));
     top: -120px;
     right: -80px;
     animation: blob-drift-1 12s ease-in-out infinite;
@@ -30,7 +27,7 @@
 .blob-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #34d399, #059669); /* emerald */
+    background: radial-gradient(circle, var(--blob-2-inner), var(--blob-2-outer));
     bottom: -80px;
     left: -100px;
     animation: blob-drift-2 16s ease-in-out infinite;
@@ -39,7 +36,7 @@
 .blob-3 {
     width: 420px;
     height: 420px;
-    background: radial-gradient(circle, #fbbf24, #f59e0b); /* amber */
+    background: radial-gradient(circle, var(--blob-3-inner), var(--blob-3-outer));
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -145,30 +142,18 @@
 }
 
 .styled-scrollbar::-webkit-scrollbar-thumb {
-    background: #d4d4d4;
+    background: var(--scrollbar-thumb);
     border-radius: 3px;
 }
 
 .styled-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #a3a3a3;
-}
-
-.dark .styled-scrollbar::-webkit-scrollbar-thumb {
-    background: #404040;
-}
-
-.dark .styled-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #525252;
+    background: var(--scrollbar-thumb-hover);
 }
 
 /* Firefox */
 .styled-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #d4d4d4 transparent;
-}
-
-.dark .styled-scrollbar {
-    scrollbar-color: #404040 transparent;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 /* ── Dead High slideshow ── */

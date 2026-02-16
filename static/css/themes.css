@@ -1,0 +1,228 @@
+/* ══════════════════════════════════════════════════
+   Theme System: CSS Custom Properties
+   Add a new theme by creating a [data-theme="name"] block.
+   ══════════════════════════════════════════════════ */
+
+/* ── Light theme (default) ── */
+:root,
+[data-theme="light"] {
+    /* Backgrounds */
+    --color-bg:              #fafafa;
+    --color-surface:         #ffffff;
+    --color-surface-alt:     #f5f5f5;
+    --color-surface-hover:   #fafafa;
+    --color-nav-bg:          rgba(255, 255, 255, 0.8);
+
+    /* Text */
+    --color-text-primary:    #171717;
+    --color-text-secondary:  #737373;
+    --color-text-muted:      #a3a3a3;
+    --color-text-nav:        #525252;
+    --color-text-hover:      #171717;
+
+    /* Borders */
+    --color-border:          #e5e5e5;
+    --color-border-subtle:   rgba(229, 229, 229, 0.5);
+    --color-border-divider:  #f5f5f5;
+
+    /* Accent */
+    --color-accent:          #16a34a;
+    --color-accent-hover-bg: #f0fdf4;
+    --color-accent-from:     #16a34a;
+    --color-accent-to:       #059669;
+    --color-accent-highlight: #f0fdf4;
+
+    /* Music player */
+    --color-wave:            #d4d4d4;
+    --color-wave-progress:   #16a34a;
+    --color-viz-bar:         #16a34a;
+
+    /* Blobs */
+    --blob-opacity:          0.3;
+    --blob-1-inner:          #a78bfa;
+    --blob-1-outer:          #7c3aed;
+    --blob-2-inner:          #34d399;
+    --blob-2-outer:          #059669;
+    --blob-3-inner:          #fbbf24;
+    --blob-3-outer:          #f59e0b;
+
+    /* Scrollbar */
+    --scrollbar-thumb:       #d4d4d4;
+    --scrollbar-thumb-hover: #a3a3a3;
+
+    /* Font */
+    --font-body:             "DM Sans", system-ui, sans-serif;
+    --font-heading:          "DM Sans", system-ui, sans-serif;
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+    --color-bg:              #0a0a0a;
+    --color-surface:         #171717;
+    --color-surface-alt:     #262626;
+    --color-surface-hover:   rgba(38, 38, 38, 0.5);
+    --color-nav-bg:          rgba(10, 10, 10, 0.8);
+
+    --color-text-primary:    #f5f5f5;
+    --color-text-secondary:  #a3a3a3;
+    --color-text-muted:      #737373;
+    --color-text-nav:        #d4d4d4;
+    --color-text-hover:      #ffffff;
+
+    --color-border:          #262626;
+    --color-border-subtle:   rgba(38, 38, 38, 0.5);
+    --color-border-divider:  #262626;
+
+    --color-accent:          #4ade80;
+    --color-accent-hover-bg: #262626;
+    --color-accent-from:     #4ade80;
+    --color-accent-to:       #34d399;
+    --color-accent-highlight: rgba(22, 101, 52, 0.3);
+
+    --color-wave:            #404040;
+    --color-wave-progress:   #22c55e;
+    --color-viz-bar:         #22c55e;
+
+    --blob-opacity:          0.15;
+    --blob-1-inner:          #a78bfa;
+    --blob-1-outer:          #7c3aed;
+    --blob-2-inner:          #34d399;
+    --blob-2-outer:          #059669;
+    --blob-3-inner:          #fbbf24;
+    --blob-3-outer:          #f59e0b;
+
+    --scrollbar-thumb:       #404040;
+    --scrollbar-thumb-hover: #525252;
+
+    --font-body:             "DM Sans", system-ui, sans-serif;
+    --font-heading:          "DM Sans", system-ui, sans-serif;
+}
+
+/* ── Retro theme ── */
+[data-theme="retro"] {
+    --color-bg:              #1a1a0e;
+    --color-surface:         #222211;
+    --color-surface-alt:     #2a2a18;
+    --color-surface-hover:   rgba(42, 42, 24, 0.5);
+    --color-nav-bg:          rgba(26, 26, 14, 0.9);
+
+    --color-text-primary:    #ffb000;
+    --color-text-secondary:  #cc8800;
+    --color-text-muted:      #886600;
+    --color-text-nav:        #ddaa00;
+    --color-text-hover:      #ffcc00;
+
+    --color-border:          #3a3a20;
+    --color-border-subtle:   rgba(58, 58, 32, 0.5);
+    --color-border-divider:  #3a3a20;
+
+    --color-accent:          #33ff33;
+    --color-accent-hover-bg: #2a2a18;
+    --color-accent-from:     #33ff33;
+    --color-accent-to:       #00cc66;
+    --color-accent-highlight: rgba(0, 80, 0, 0.25);
+
+    --color-wave:            #3a3a20;
+    --color-wave-progress:   #33ff33;
+    --color-viz-bar:         #33ff33;
+
+    --blob-opacity:          0.08;
+    --blob-1-inner:          #33ff33;
+    --blob-1-outer:          #006600;
+    --blob-2-inner:          #ffb000;
+    --blob-2-outer:          #885500;
+    --blob-3-inner:          #33ff33;
+    --blob-3-outer:          #004400;
+
+    --scrollbar-thumb:       #3a3a20;
+    --scrollbar-thumb-hover: #555530;
+
+    --font-body:             "Space Mono", "Courier New", monospace;
+    --font-heading:          "Space Mono", "Courier New", monospace;
+}
+
+/* ── MySpace theme ── */
+[data-theme="myspace"] {
+    --color-bg:              #000033;
+    --color-surface:         #0d0d3b;
+    --color-surface-alt:     #1a1a55;
+    --color-surface-hover:   rgba(30, 30, 80, 0.5);
+    --color-nav-bg:          rgba(0, 0, 51, 0.9);
+
+    --color-text-primary:    #ff66ff;
+    --color-text-secondary:  #00ffff;
+    --color-text-muted:      #9999ff;
+    --color-text-nav:        #ff99ff;
+    --color-text-hover:      #ffffff;
+
+    --color-border:          #ff00ff;
+    --color-border-subtle:   rgba(255, 0, 255, 0.3);
+    --color-border-divider:  #330066;
+
+    --color-accent:          #00ff00;
+    --color-accent-hover-bg: #1a1a55;
+    --color-accent-from:     #ff00ff;
+    --color-accent-to:       #00ffff;
+    --color-accent-highlight: rgba(255, 0, 255, 0.2);
+
+    --color-wave:            #330066;
+    --color-wave-progress:   #ff00ff;
+    --color-viz-bar:         #00ff00;
+
+    --blob-opacity:          0.25;
+    --blob-1-inner:          #ff66ff;
+    --blob-1-outer:          #cc00cc;
+    --blob-2-inner:          #66ffff;
+    --blob-2-outer:          #00cccc;
+    --blob-3-inner:          #66ff66;
+    --blob-3-outer:          #00cc00;
+
+    --scrollbar-thumb:       #6600ff;
+    --scrollbar-thumb-hover: #ff00ff;
+
+    --font-body:             "Comic Sans MS", cursive, sans-serif;
+    --font-heading:          "Comic Sans MS", cursive, sans-serif;
+}
+
+/* ── MySpace-specific effects ── */
+[data-theme="myspace"] h1,
+[data-theme="myspace"] h2,
+[data-theme="myspace"] h3 {
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+[data-theme="myspace"] .bg-th-surface {
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.25), 0 0 24px rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="myspace"] .nav-gradient-line {
+    background: linear-gradient(to right, #ff00ff, #00ffff, #00ff00, #ffff00, #ff00ff);
+    height: 3px;
+}
+
+[data-theme="myspace"] .blob {
+    filter: blur(50px);
+}
+
+[data-theme="myspace"] body {
+    cursor: crosshair;
+}
+
+[data-theme="myspace"] a {
+    cursor: pointer;
+}
+
+[data-theme="myspace"] .track-play-btn,
+[data-theme="myspace"] #np-play-pause {
+    background: #ff00ff;
+}
+
+[data-theme="myspace"] .track-play-btn:hover,
+[data-theme="myspace"] #np-play-pause:hover {
+    background: #cc00cc;
+}
+
+[data-theme="myspace"] .border-t-emerald-500 { border-top-color: #00ffff; }
+[data-theme="myspace"] .border-t-red-500 { border-top-color: #ff00ff; }
+[data-theme="myspace"] .border-t-violet-500 { border-top-color: #00ff00; }
+[data-theme="myspace"] .border-t-amber-500 { border-top-color: #ffff00; }
