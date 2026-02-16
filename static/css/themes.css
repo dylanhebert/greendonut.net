@@ -138,6 +138,10 @@
     100% { opacity: 1; }
 }
 
+[data-theme="retro"] .nav-gradient-line {
+    background: linear-gradient(to right, #ffb000, #33ff33, #ff6600, #ffb000, #33ff33);
+}
+
 /* ── MySpace theme ── */
 [data-theme="myspace"] {
     --color-bg:              #000033;
