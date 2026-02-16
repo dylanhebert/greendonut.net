@@ -467,20 +467,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ── Visibility change: pause/resume to prevent speed-up on mobile ──
-    var wasPlayingBeforeHide = false;
+    // ── Visibility change: stop/restart visualizer to prevent AudioContext desync ──
     document.addEventListener("visibilitychange", function () {
         if (document.hidden) {
-            if (activeIndex !== null && players[activeIndex] && players[activeIndex].ws.isPlaying()) {
-                wasPlayingBeforeHide = true;
-                pauseTrack();
-            } else {
-                wasPlayingBeforeHide = false;
-            }
+            stopVisualization();
         } else {
-            if (wasPlayingBeforeHide && activeIndex !== null && players[activeIndex]) {
-                wasPlayingBeforeHide = false;
-                playTrack(activeIndex);
+            if (activeIndex !== null && players[activeIndex] && players[activeIndex].ws.isPlaying()) {
+                if (audioContext && audioContext.state === "suspended") {
+                    audioContext.resume();
+                }
+                startVisualization();
             }
         }
     });
