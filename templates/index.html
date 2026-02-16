@@ -26,15 +26,14 @@
                   {% elif project.color == 'violet' %}border-t-4 border-t-violet-500
                   {% elif project.color == 'amber' %}border-t-4 border-t-amber-500
                   {% endif %}">
-            <div class="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                {% if project.image.endswith('.svg') %}
+            <div class="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
                 <img src="{{ url_for('static', filename='images/' + project.image) }}"
                      alt="{{ project.name }}"
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                {% else %}
-                <img src="{{ url_for('static', filename='images/' + project.image) }}"
-                     alt="{{ project.name }}"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                {% if project.icon %}
+                <img src="{{ url_for('static', filename='images/' + project.icon) }}"
+                     alt=""
+                     class="absolute bottom-3 right-3 w-12 h-12 opacity-60 group-hover:opacity-90 transition-opacity duration-300 drop-shadow-lg">
                 {% endif %}
             </div>
             <div class="p-5">

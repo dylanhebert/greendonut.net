@@ -22,6 +22,7 @@ PROJECTS = [
         "description": "Real-time Grand Exchange flip tracker for Old School RuneScape.",
         "url": "https://flips.greendonut.net",
         "image": "greenflips-banner.svg",
+        "icon": "greenflips-icon.svg",
         "color": "amber",
     },
 ]
