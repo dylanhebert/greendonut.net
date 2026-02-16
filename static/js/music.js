@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Tilt: quadratic curve so mids stay flat, only highs get boosted
             var t = i / numBars;
-            var tilt = 1.0 + t * t * 2.0;
+            var tilt = 1.0 + t * t * 1.5;
             var normalized = Math.min(avg * tilt / 255, 1.0);
             var scaled = Math.pow(normalized, 1.8);
             var barHeight = Math.max(2, scaled * height);
