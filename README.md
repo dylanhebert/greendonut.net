@@ -1,6 +1,6 @@
 # greendonut.net
 
-Personal portfolio site for [Green Donut](https://greendonut.net). Showcases software projects, video game mods, and other creations.
+Personal portfolio site for [Green Donut](https://greendonut.net). Showcases software projects, video game dev, and other creations.
 
 Built with Flask, Tailwind CSS, and vanilla JavaScript.
 

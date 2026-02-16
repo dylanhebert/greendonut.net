@@ -31,7 +31,7 @@ SOCIAL_LINKS = [
     {"name": "GitHub", "url": "https://github.com/dylanhebert"},
 ]
 
-GAME_MODS = [
+GAME_DEV = [
     {
         "name": "Dead High",
         "game": "Call of Duty: Black Ops III",
@@ -61,7 +61,7 @@ GAME_MODS = [
 
 @app.route("/")
 def index():
-    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_mods=GAME_MODS)
+    return render_template("index.html", projects=PROJECTS, social_links=SOCIAL_LINKS, game_dev=GAME_DEV)
 
 
 @app.route("/robots.txt")
