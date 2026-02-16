@@ -37,15 +37,6 @@
     --color-wave-progress:   #16a34a;
     --color-viz-bar:         #16a34a;
 
-    /* Blobs */
-    --blob-opacity:          0.3;
-    --blob-1-inner:          #a78bfa;
-    --blob-1-outer:          #7c3aed;
-    --blob-2-inner:          #34d399;
-    --blob-2-outer:          #059669;
-    --blob-3-inner:          #fbbf24;
-    --blob-3-outer:          #f59e0b;
-
     /* Scrollbar */
     --scrollbar-thumb:       #d4d4d4;
     --scrollbar-thumb-hover: #a3a3a3;
@@ -83,14 +74,6 @@
     --color-wave-progress:   #22c55e;
     --color-viz-bar:         #22c55e;
 
-    --blob-opacity:          0.15;
-    --blob-1-inner:          #a78bfa;
-    --blob-1-outer:          #7c3aed;
-    --blob-2-inner:          #34d399;
-    --blob-2-outer:          #059669;
-    --blob-3-inner:          #fbbf24;
-    --blob-3-outer:          #f59e0b;
-
     --scrollbar-thumb:       #404040;
     --scrollbar-thumb-hover: #525252;
 
@@ -126,19 +109,33 @@
     --color-wave-progress:   #33ff33;
     --color-viz-bar:         #33ff33;
 
-    --blob-opacity:          0.08;
-    --blob-1-inner:          #33ff33;
-    --blob-1-outer:          #006600;
-    --blob-2-inner:          #ffb000;
-    --blob-2-outer:          #885500;
-    --blob-3-inner:          #33ff33;
-    --blob-3-outer:          #004400;
-
     --scrollbar-thumb:       #3a3a20;
     --scrollbar-thumb-hover: #555530;
 
     --font-body:             "Space Mono", "Courier New", monospace;
     --font-heading:          "Space Mono", "Courier New", monospace;
+}
+
+/* ── Retro CRT effects ── */
+[data-theme="retro"] h1,
+[data-theme="retro"] h2,
+[data-theme="retro"] h3 {
+    text-shadow:
+        2px 0 rgba(255, 60, 60, 0.4),
+        -2px 0 rgba(0, 255, 200, 0.4);
+}
+
+[data-theme="retro"] .bg-th-surface {
+    animation: crt-flicker 5s linear infinite;
+}
+
+@keyframes crt-flicker {
+    0%, 89% { opacity: 1; }
+    90% { opacity: 0.97; }
+    91% { opacity: 1; }
+    94% { opacity: 0.98; }
+    95% { opacity: 1; }
+    100% { opacity: 1; }
 }
 
 /* ── MySpace theme ── */
@@ -169,14 +166,6 @@
     --color-wave-progress:   #ff00ff;
     --color-viz-bar:         #00ff00;
 
-    --blob-opacity:          0.25;
-    --blob-1-inner:          #ff66ff;
-    --blob-1-outer:          #cc00cc;
-    --blob-2-inner:          #66ffff;
-    --blob-2-outer:          #00cccc;
-    --blob-3-inner:          #66ff66;
-    --blob-3-outer:          #00cc00;
-
     --scrollbar-thumb:       #6600ff;
     --scrollbar-thumb-hover: #ff00ff;
 
@@ -198,10 +187,6 @@
 [data-theme="myspace"] .nav-gradient-line {
     background: linear-gradient(to right, #ff00ff, #00ffff, #00ff00, #ffff00, #ff00ff);
     height: 3px;
-}
-
-[data-theme="myspace"] .blob {
-    filter: blur(50px);
 }
 
 [data-theme="myspace"] body {

@@ -1,5 +1,8 @@
-/* ── Animated background blobs ── */
-.blob-container {
+/* ── Themed background effects ──
+   Each theme gets its own background via [data-theme] selectors.
+   To add a new background for a theme, add a [data-theme="name"] .bg-effects block.
+── */
+.bg-effects {
     position: fixed;
     inset: 0;
     z-index: 0;
@@ -7,63 +10,142 @@
     pointer-events: none;
 }
 
-.blob {
+/* Light: animated dot grid (two layers for parallax movement) */
+[data-theme="light"] .bg-effects {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.18) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+[data-theme="light"] .bg-effects::before {
+    content: '';
     position: absolute;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: var(--blob-opacity, 0.3);
-    transition: opacity 0.3s ease, background 0.3s ease;
+    inset: -30px;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    animation: dot-drift 25s ease-in-out infinite;
 }
 
-.blob-1 {
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, var(--blob-1-inner), var(--blob-1-outer));
-    top: -120px;
-    right: -80px;
-    animation: blob-drift-1 12s ease-in-out infinite;
+@keyframes dot-drift {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(10px, -8px); }
+    50% { transform: translate(-6px, 12px); }
+    75% { transform: translate(8px, 4px); }
 }
 
-.blob-2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--blob-2-inner), var(--blob-2-outer));
-    bottom: -80px;
-    left: -100px;
-    animation: blob-drift-2 16s ease-in-out infinite;
+/* Dark: aurora gradient wash */
+[data-theme="dark"] .bg-effects::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    right: -20%;
+    height: 80%;
+    background:
+        radial-gradient(ellipse at 25% 30%, rgba(167, 139, 250, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 20%, rgba(52, 211, 153, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 10%, rgba(251, 191, 36, 0.14) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 55%, rgba(251, 113, 133, 0.12) 0%, transparent 45%);
+    filter: blur(40px);
+    animation: aurora-drift 25s ease-in-out infinite;
 }
 
-.blob-3 {
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle, var(--blob-3-inner), var(--blob-3-outer));
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: blob-drift-3 10s ease-in-out infinite;
+@keyframes aurora-drift {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    33% { transform: translateX(30px) translateY(15px); }
+    66% { transform: translateX(-20px) translateY(-10px); }
 }
 
-@keyframes blob-drift-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    20% { transform: translate(-120px, 80px) scale(1.15); }
-    40% { transform: translate(-60px, 180px) scale(0.9); }
-    60% { transform: translate(80px, 100px) scale(1.1); }
-    80% { transform: translate(40px, 30px) scale(0.95); }
+/* Retro: CRT noise grain + scan lines + vignette */
+[data-theme="retro"] .bg-effects {
+    box-shadow: inset 0 0 150px 50px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes blob-drift-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    20% { transform: translate(80px, -60px) scale(1.1); }
-    40% { transform: translate(160px, -120px) scale(1.15); }
-    60% { transform: translate(100px, -40px) scale(0.9); }
-    80% { transform: translate(40px, -80px) scale(1.05); }
+[data-theme="retro"] .bg-effects::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.04;
 }
 
-@keyframes blob-drift-3 {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    25% { transform: translate(-35%, -65%) scale(1.15); }
-    50% { transform: translate(-65%, -35%) scale(0.85); }
-    75% { transform: translate(-45%, -55%) scale(1.1); }
+[data-theme="retro"] .bg-effects::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.08) 3px,
+        rgba(0, 0, 0, 0.08) 4px
+    );
+    animation: scanline-pulse 6s ease-in-out infinite;
+}
+
+@keyframes scanline-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* MySpace: neon topo lines + color cycling gradient + twinkling stars */
+[data-theme="myspace"] .bg-effects {
+    background-image:
+        repeating-radial-gradient(circle at 15% 25%, transparent 0px, transparent 28px, rgba(255, 0, 255, 0.22) 29px, transparent 31px),
+        repeating-radial-gradient(circle at 85% 45%, transparent 0px, transparent 42px, rgba(0, 255, 255, 0.18) 43px, transparent 45px),
+        repeating-radial-gradient(circle at 40% 75%, transparent 0px, transparent 22px, rgba(0, 255, 0, 0.16) 23px, transparent 25px),
+        repeating-radial-gradient(circle at 70% 10%, transparent 0px, transparent 35px, rgba(255, 255, 0, 0.14) 36px, transparent 38px),
+        repeating-radial-gradient(circle at 50% 50%, transparent 0px, transparent 50px, rgba(255, 100, 0, 0.12) 51px, transparent 53px);
+}
+
+[data-theme="myspace"] .bg-effects::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 0, 255, 0.15),
+        rgba(0, 255, 255, 0.12),
+        rgba(0, 255, 0, 0.15),
+        rgba(255, 255, 0, 0.12),
+        rgba(255, 0, 128, 0.15),
+        rgba(0, 128, 255, 0.12)
+    );
+    background-size: 400% 400%;
+    animation: myspace-color-cycle 6s ease-in-out infinite;
+}
+
+[data-theme="myspace"] .bg-effects::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 30% 70%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 70% 10%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 15% 85%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 55% 90%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 80% 35%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 40% 15%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(1px 1px at 65% 55%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 25% 45%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 85% 80%, rgba(255, 255, 255, 0.5), transparent);
+    animation: myspace-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes myspace-color-cycle {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+@keyframes myspace-twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 /* Nav animated gradient line */
@@ -131,6 +213,30 @@
 .scroll-delay-2 { transition-delay: 0.15s; }
 .scroll-delay-3 { transition-delay: 0.3s; }
 .scroll-delay-4 { transition-delay: 0.45s; }
+
+/* ── Page scrollbar ── */
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--color-bg);
+}
 
 /* ── Custom scrollbar (tracklist) ── */
 .styled-scrollbar::-webkit-scrollbar {
