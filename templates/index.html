@@ -16,7 +16,10 @@
 
 <!-- Projects Section -->
 <section id="projects" class="max-w-5xl mx-auto px-4 pb-24">
-    <h2 class="scroll-reveal text-2xl font-bold mb-8 text-center">Projects</h2>
+    <h2 class="scroll-reveal text-2xl font-bold mb-2 text-center">Projects</h2>
+    <p class="scroll-reveal text-sm text-th-text-secondary text-center max-w-xl mx-auto mb-8">
+        I build software to solve real problems and organize the things I care about. What started with Python-based Discord bots grew into a career in software development.
+    </p>
     <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         {% for project in projects %}
         <a href="{{ project.url }}" target="_blank" rel="noopener"
@@ -50,7 +53,10 @@
 
 <!-- Game Dev Section -->
 <section id="games" class="max-w-5xl mx-auto px-4 pb-24">
-    <h2 class="scroll-reveal text-2xl font-bold mb-8 text-center">Game Dev</h2>
+    <h2 class="scroll-reveal text-2xl font-bold mb-2 text-center">Game Dev</h2>
+    <p class="scroll-reveal text-sm text-th-text-secondary text-center max-w-xl mx-auto mb-8">
+        Lifelong gamer who got into development through creating Call of Duty zombies experiences. I focus on building fun, memorable gameplay through thoughtful design, and if even one person says they loved what I built, I know I've done something right.
+    </p>
     <div class="max-w-3xl mx-auto space-y-6">
         {% for mod in game_dev %}
         {% if mod.slideshow %}
@@ -123,7 +129,10 @@
 <!-- Music Section -->
 {% if music %}
 <section id="music" class="max-w-5xl mx-auto px-4 pb-24">
-    <h2 class="scroll-reveal text-2xl font-bold mb-8 text-center">Music</h2>
+    <h2 class="scroll-reveal text-2xl font-bold mb-2 text-center">Music</h2>
+    <p class="scroll-reveal text-sm text-th-text-secondary text-center max-w-xl mx-auto mb-8">
+        Lifelong musician on drums and saxophone with audio engineering experience in studio and live settings. In my teen years I fell in love with electronic music and its endless creative potential, so I started making my own.
+    </p>
 
     <!-- Now Playing Card -->
     <div id="now-playing" class="scroll-reveal max-w-3xl mx-auto mb-6 bg-th-surface rounded-xl border border-th-border shadow-sm overflow-hidden">
