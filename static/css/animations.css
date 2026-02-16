@@ -135,6 +135,42 @@
 .scroll-delay-3 { transition-delay: 0.3s; }
 .scroll-delay-4 { transition-delay: 0.45s; }
 
+/* ── Custom scrollbar (tracklist) ── */
+.styled-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 3px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3;
+}
+
+.dark .styled-scrollbar::-webkit-scrollbar-thumb {
+    background: #404040;
+}
+
+.dark .styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+}
+
+/* Firefox */
+.styled-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 transparent;
+}
+
+.dark .styled-scrollbar {
+    scrollbar-color: #404040 transparent;
+}
+
 /* ── Dead High slideshow ── */
 .slideshow-container .slideshow-img {
     opacity: 0;
