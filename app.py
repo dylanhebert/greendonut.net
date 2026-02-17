@@ -6,6 +6,18 @@ from flask import Flask, render_template, send_from_directory
 app = Flask(__name__)
 
 
+@app.context_processor
+def cache_bust():
+    def versioned_static(filename):
+        filepath = os.path.join(app.static_folder, filename)
+        try:
+            mtime = int(os.path.getmtime(filepath))
+        except OSError:
+            mtime = 0
+        return f"/static/{filename}?v={mtime}"
+    return dict(versioned_static=versioned_static)
+
+
 def load_music():
     json_path = os.path.join(os.path.dirname(__file__), "data", "music.json")
     with open(json_path) as f:

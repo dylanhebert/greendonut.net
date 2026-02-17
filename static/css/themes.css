@@ -173,8 +173,8 @@
     --scrollbar-thumb:       #6600ff;
     --scrollbar-thumb-hover: #ff00ff;
 
-    --font-body:             "Comic Sans MS", cursive, sans-serif;
-    --font-heading:          "Comic Sans MS", cursive, sans-serif;
+    --font-body:             "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+    --font-heading:          "Comic Neue", "Comic Sans MS", cursive, sans-serif;
 }
 
 /* ── MySpace-specific effects ── */

@@ -20,9 +20,9 @@
     <meta name="theme-color" content="#22c55e">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/themes.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ versioned_static('css/themes.css') }}">
+    <link rel="stylesheet" href="{{ versioned_static('css/animations.css') }}">
     <style>
         html[data-theme="dark"] { background: #0a0a0a; color: #f5f5f5; }
         html[data-theme="retro"] { background: #1a1a0e; color: #ffb000; }
@@ -79,10 +79,10 @@
             document.documentElement.setAttribute("data-theme", theme);
         })();
     </script>
-    <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/scroll.js') }}" defer></script>
+    <script src="{{ versioned_static('js/theme.js') }}" defer></script>
+    <script src="{{ versioned_static('js/scroll.js') }}" defer></script>
     <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js" defer></script>
-    <script src="{{ url_for('static', filename='js/music.js') }}" defer></script>
+    <script src="{{ versioned_static('js/music.js') }}" defer></script>
 </head>
 <body class="bg-th-bg text-th-text font-sans min-h-screen transition-colors overflow-x-hidden">
     <!-- Themed background effect -->
