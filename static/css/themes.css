@@ -117,24 +117,57 @@
 }
 
 /* ── Retro CRT effects ── */
+
+/* SVG filter for subtle CRT displacement warp */
+[data-theme="retro"] body::before {
+    content: '';
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    /* Inline SVG filter definition */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='crt-warp'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015 0.005' numOctaves='2' seed='2' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='3' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+}
+
+/* Barrel distortion: CRT screen curvature */
+[data-theme="retro"] main {
+    transform: perspective(1000px) rotateX(0.8deg);
+    transform-origin: center top;
+}
+
+/* Displacement warp on text content */
+[data-theme="retro"] main > section {
+    filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='crt'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015 0.004' numOctaves='3' seed='3' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='5' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E#crt");
+}
+
 [data-theme="retro"] h1,
 [data-theme="retro"] h2,
 [data-theme="retro"] h3 {
     text-shadow:
-        2px 0 rgba(255, 60, 60, 0.4),
-        -2px 0 rgba(0, 255, 200, 0.4);
+        3px 0 rgba(255, 60, 60, 0.5),
+        -3px 0 rgba(0, 255, 200, 0.5);
+}
+
+/* Phosphor glow on body text */
+[data-theme="retro"] p,
+[data-theme="retro"] a,
+[data-theme="retro"] span,
+[data-theme="retro"] button {
+    text-shadow: 0 0 4px rgba(255, 176, 0, 0.3);
 }
 
 [data-theme="retro"] .bg-th-surface {
-    animation: crt-flicker 5s linear infinite;
+    animation: crt-flicker 3s linear infinite;
 }
 
 @keyframes crt-flicker {
-    0%, 89% { opacity: 1; }
-    90% { opacity: 0.97; }
-    91% { opacity: 1; }
-    94% { opacity: 0.98; }
-    95% { opacity: 1; }
+    0%, 87% { opacity: 1; }
+    88% { opacity: 0.95; }
+    89% { opacity: 1; }
+    92% { opacity: 0.96; }
+    93% { opacity: 1; }
+    96% { opacity: 0.94; }
+    97% { opacity: 1; }
     100% { opacity: 1; }
 }
 
