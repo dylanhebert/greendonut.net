@@ -313,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setNpPlayState(true);
         activeIndex = index;
         startVisualization();
+        npCard.classList.add("playing");
     }
 
     function pauseTrack() {
@@ -321,6 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setPlayState(activeIndex, false);
         setNpPlayState(false);
         stopVisualization();
+        npCard.classList.remove("playing");
     }
 
     function playNext() {
@@ -331,6 +333,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             pauseTrack();
             clearCanvas();
+            npCard.classList.remove("playing");
         }
     }
 

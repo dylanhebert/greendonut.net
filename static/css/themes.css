@@ -189,6 +189,268 @@
     background: linear-gradient(to right, #ffb000, #33ff33, #ff6600, #ffb000, #33ff33);
 }
 
+/* ── Retro cassette deck player ── */
+
+/* Deck housing */
+[data-theme="retro"] #now-playing {
+    background: linear-gradient(180deg, #3a3a28 0%, #2a2a18 40%, #222211 100%);
+    border: 2px solid #555530;
+    border-radius: 8px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 176, 0, 0.1),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Brand label strip across the top */
+[data-theme="retro"] #now-playing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #555530, #886600, #555530);
+    border-radius: 6px 6px 0 0;
+    z-index: 1;
+}
+
+/* Idle state: empty deck */
+[data-theme="retro"] #np-idle {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 2rem 1.5rem;
+}
+
+[data-theme="retro"] #np-idle svg {
+    display: none;
+}
+
+[data-theme="retro"] #np-idle span {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    color: #886600;
+}
+
+/* Empty tape window in idle state */
+[data-theme="retro"] #np-idle::before {
+    content: '';
+    display: block;
+    width: 70%;
+    max-width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    background: #0a0a05;
+    border: 2px solid #444420;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Header: LED-style "Now Playing" badge */
+[data-theme="retro"] #np-active > div:first-child .text-xs.font-medium {
+    background: #0a0a05;
+    border: 1px solid #3a3a20;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+    color: #33ff33;
+    text-shadow: 0 0 6px rgba(51, 255, 51, 0.6);
+}
+
+/* LCD counter time display */
+[data-theme="retro"] #np-current-time,
+[data-theme="retro"] #np-duration {
+    background: #0a0a05;
+    border: 1px solid #3a3a20;
+    padding: 1px 6px;
+    border-radius: 2px;
+    color: #33ff33;
+    text-shadow: 0 0 4px rgba(51, 255, 51, 0.5);
+}
+
+/* Tape window: the canvas wrapper */
+[data-theme="retro"] .tape-window {
+    background: #0a0a05;
+    border: 2px solid #444420;
+    border-radius: 12px;
+    margin: 0 1rem;
+    padding: 0.75rem !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+/* Tape reels container: positioned over the canvas */
+[data-theme="retro"] .tape-reels {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Individual reel */
+[data-theme="retro"] .tape-reel {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #555530;
+    background: radial-gradient(circle, #1a1a0e 25%, #2a2a18 60%, #333320 100%);
+    position: relative;
+    animation: tape-spin 2.5s linear infinite;
+    animation-play-state: paused;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Reel hub with spokes */
+[data-theme="retro"] .tape-reel::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border-radius: 50%;
+    border: 2px solid #555530;
+    background: conic-gradient(
+        #444420 0deg, #444420 8deg,
+        transparent 8deg, transparent 52deg,
+        #444420 52deg, #444420 68deg,
+        transparent 68deg, transparent 112deg,
+        #444420 112deg, #444420 128deg,
+        transparent 128deg, transparent 172deg,
+        #444420 172deg, #444420 188deg,
+        transparent 188deg, transparent 232deg,
+        #444420 232deg, #444420 248deg,
+        transparent 248deg, transparent 292deg,
+        #444420 292deg, #444420 308deg,
+        transparent 308deg, transparent 352deg,
+        #444420 352deg, #444420 360deg
+    );
+}
+
+/* Reel center dot */
+[data-theme="retro"] .tape-reel::after {
+    content: '';
+    position: absolute;
+    inset: 40%;
+    border-radius: 50%;
+    background: #555530;
+    border: 1px solid #666640;
+}
+
+/* Spin reels when playing */
+[data-theme="retro"] #now-playing.playing .tape-reel {
+    animation-play-state: running;
+}
+
+/* Transport controls panel */
+[data-theme="retro"] #np-active > div:last-child {
+    background: linear-gradient(180deg, #1a1a0e, #222211);
+    border-top: 1px solid #3a3a20;
+}
+
+/* Play/pause: mechanical pushbutton */
+[data-theme="retro"] #np-play-pause {
+    background: linear-gradient(180deg, #555530, #3a3a20) !important;
+    border: 2px solid #666640;
+    border-bottom-color: #222211;
+    box-shadow:
+        0 3px 0 #1a1a0e,
+        inset 0 1px 0 rgba(255, 176, 0, 0.15);
+    border-radius: 6px !important;
+    transition: all 0.1s;
+}
+
+[data-theme="retro"] #np-play-pause:hover {
+    background: linear-gradient(180deg, #666640, #444420) !important;
+}
+
+[data-theme="retro"] #np-play-pause:active {
+    box-shadow: 0 1px 0 #1a1a0e;
+    transform: translateY(2px);
+}
+
+/* Prev/Next: smaller mechanical buttons */
+[data-theme="retro"] #np-prev,
+[data-theme="retro"] #np-next {
+    background: linear-gradient(180deg, #444420, #2a2a18);
+    border: 1px solid #555530;
+    border-bottom-color: #1a1a0e;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 #1a1a0e;
+    transition: all 0.1s;
+}
+
+[data-theme="retro"] #np-prev:hover,
+[data-theme="retro"] #np-next:hover {
+    background: linear-gradient(180deg, #555530, #3a3a20);
+}
+
+[data-theme="retro"] #np-prev:active,
+[data-theme="retro"] #np-next:active {
+    box-shadow: 0 0 0 #1a1a0e;
+    transform: translateY(2px);
+}
+
+/* Tracklist container: cassette case */
+[data-theme="retro"] #music .styled-scrollbar {
+    background: #1a1a0e;
+    border: 2px solid #555530;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Track rows: cassette labels */
+[data-theme="retro"] .track-row {
+    background: linear-gradient(90deg, #2a2a18 0%, #333320 50%, #2a2a18 100%);
+    border-left: 3px solid #555530 !important;
+    position: relative;
+}
+
+[data-theme="retro"] .track-row:hover {
+    background: linear-gradient(90deg, #333320 0%, #3a3a28 50%, #333320 100%) !important;
+}
+
+/* Active track: green accent border */
+[data-theme="retro"] .track-row.bg-th-accent-hl {
+    background: linear-gradient(90deg, #2a3a18 0%, #334420 50%, #2a3a18 100%) !important;
+    border-left-color: #33ff33 !important;
+}
+
+/* Track play buttons: square mechanical buttons */
+[data-theme="retro"] .track-play-btn {
+    background: linear-gradient(180deg, #555530, #3a3a20) !important;
+    border: 2px solid #666640;
+    border-bottom-color: #222211;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 0 #1a1a0e;
+    transition: all 0.1s;
+}
+
+[data-theme="retro"] .track-play-btn:hover {
+    background: linear-gradient(180deg, #666640, #444420) !important;
+}
+
+[data-theme="retro"] .track-play-btn:active {
+    box-shadow: 0 0 0 #1a1a0e;
+    transform: translateY(2px);
+}
+
+/* Mobile: smaller reels */
+@media (max-width: 640px) {
+    [data-theme="retro"] .tape-reel {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 /* ── MySpace theme ── */
 [data-theme="myspace"] {
     --color-bg:              #000033;
