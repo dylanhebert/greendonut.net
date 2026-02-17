@@ -510,17 +510,229 @@
     cursor: pointer;
 }
 
-[data-theme="myspace"] .track-play-btn,
-[data-theme="myspace"] #np-play-pause {
-    background: #ff00ff;
-}
-
-[data-theme="myspace"] .track-play-btn:hover,
-[data-theme="myspace"] #np-play-pause:hover {
-    background: #cc00cc;
-}
-
 [data-theme="myspace"] .border-t-emerald-500 { border-top-color: #00ffff; }
 [data-theme="myspace"] .border-t-red-500 { border-top-color: #ff00ff; }
 [data-theme="myspace"] .border-t-violet-500 { border-top-color: #00ff00; }
 [data-theme="myspace"] .border-t-amber-500 { border-top-color: #ffff00; }
+
+/* ── MySpace stereo player (2000s component stereo) ── */
+
+/* Stereo housing: brushed silver-purple metallic plastic */
+[data-theme="myspace"] #now-playing {
+    background: linear-gradient(180deg, #5a5a7a 0%, #3a3a5a 8%, #2a2a4a 50%, #222244 100%);
+    border: 2px solid #6a6a8a;
+    border-bottom-color: #1a1a3a;
+    border-radius: 6px;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* CD slot line across the top face */
+[data-theme="myspace"] #now-playing::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: #0a0a1a;
+    border-radius: 2px;
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.8),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+/* "COMPACT DISC" label under the slot */
+[data-theme="myspace"] #now-playing::after {
+    content: 'COMPACT DISC DIGITAL AUDIO';
+    position: absolute;
+    top: 13px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.45rem;
+    letter-spacing: 0.2em;
+    color: rgba(200, 200, 220, 0.35);
+    font-family: "DM Sans", system-ui, sans-serif;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Idle state: stereo standby */
+[data-theme="myspace"] #np-idle {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 2.5rem 1.5rem 2rem;
+}
+
+[data-theme="myspace"] #np-idle svg {
+    display: none;
+}
+
+[data-theme="myspace"] #np-idle span {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    color: #00cccc;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
+    font-family: "DM Sans", system-ui, sans-serif;
+}
+
+/* VFD-style empty display in idle state */
+[data-theme="myspace"] #np-idle::before {
+    content: 'NO DISC';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    max-width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    background: #050510;
+    border: 2px solid #3a3a5a;
+    border-radius: 4px;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.8),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+    color: #006666;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-shadow: 0 0 4px rgba(0, 180, 180, 0.3);
+    font-family: "DM Sans", system-ui, sans-serif;
+}
+
+/* Header: VFD "Now Playing" indicator */
+[data-theme="myspace"] #np-active > div:first-child .text-xs.font-medium {
+    background: #050510;
+    border: 1px solid #3a3a5a;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.6rem;
+    color: #00dddd;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
+    font-family: "DM Sans", system-ui, sans-serif;
+}
+
+/* VFD time counter */
+[data-theme="myspace"] #np-current-time,
+[data-theme="myspace"] #np-duration {
+    background: #050510;
+    border: 1px solid #3a3a5a;
+    padding: 1px 6px;
+    border-radius: 2px;
+    color: #00dddd;
+    text-shadow: 0 0 4px rgba(0, 255, 255, 0.4);
+    font-family: "DM Sans", system-ui, sans-serif;
+}
+
+/* VFD display panel: the canvas wrapper */
+[data-theme="myspace"] .tape-window {
+    background: #050510;
+    border: 2px solid #3a3a5a;
+    border-radius: 4px;
+    margin: 0 1rem;
+    padding: 0.75rem !important;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.8),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+/* Transport controls panel */
+[data-theme="myspace"] #np-active > div:last-child {
+    background: linear-gradient(180deg, #2a2a4a, #222244);
+    border-top: 1px solid #3a3a5a;
+}
+
+/* Play/pause: chunky rectangular metallic button */
+[data-theme="myspace"] #np-play-pause {
+    background: linear-gradient(180deg, #7a7a9a, #5a5a7a) !important;
+    border: 2px solid #8a8aa0;
+    border-bottom-color: #2a2a4a;
+    box-shadow:
+        0 3px 0 #1a1a3a,
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 6px !important;
+    transition: all 0.1s;
+}
+
+[data-theme="myspace"] #np-play-pause:hover {
+    background: linear-gradient(180deg, #8a8aaa, #6a6a8a) !important;
+}
+
+[data-theme="myspace"] #np-play-pause:active {
+    box-shadow: 0 1px 0 #1a1a3a;
+    transform: translateY(2px);
+}
+
+/* Prev/Next: smaller rectangular metallic buttons */
+[data-theme="myspace"] #np-prev,
+[data-theme="myspace"] #np-next {
+    background: linear-gradient(180deg, #5a5a7a, #3a3a5a);
+    border: 1px solid #6a6a8a;
+    border-bottom-color: #1a1a3a;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 #1a1a3a;
+    transition: all 0.1s;
+}
+
+[data-theme="myspace"] #np-prev:hover,
+[data-theme="myspace"] #np-next:hover {
+    background: linear-gradient(180deg, #6a6a8a, #4a4a6a);
+}
+
+[data-theme="myspace"] #np-prev:active,
+[data-theme="myspace"] #np-next:active {
+    box-shadow: 0 0 0 #1a1a3a;
+    transform: translateY(2px);
+}
+
+/* Tracklist container: Winamp-style playlist */
+[data-theme="myspace"] #music .styled-scrollbar {
+    background: #0a0a18;
+    border: 2px solid #3a3a5a;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Track rows: playlist entries */
+[data-theme="myspace"] .track-row {
+    border-left: 3px solid #2a2a4a !important;
+    position: relative;
+}
+
+[data-theme="myspace"] .track-row:hover {
+    background: rgba(0, 200, 200, 0.06) !important;
+    border-left-color: #00aaaa !important;
+}
+
+/* Active track: VFD highlight */
+[data-theme="myspace"] .track-row.bg-th-accent-hl {
+    background: rgba(0, 200, 200, 0.1) !important;
+    border-left-color: #00dddd !important;
+}
+
+/* Track play buttons: matching metallic buttons */
+[data-theme="myspace"] .track-play-btn {
+    background: linear-gradient(180deg, #6a6a8a, #4a4a6a) !important;
+    border: 2px solid #7a7a9a;
+    border-bottom-color: #2a2a4a;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 0 #1a1a3a;
+    transition: all 0.1s;
+}
+
+[data-theme="myspace"] .track-play-btn:hover {
+    background: linear-gradient(180deg, #7a7a9a, #5a5a7a) !important;
+}
+
+[data-theme="myspace"] .track-play-btn:active {
+    box-shadow: 0 0 0 #1a1a3a;
+    transform: translateY(2px);
+}
