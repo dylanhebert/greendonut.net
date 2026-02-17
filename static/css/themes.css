@@ -721,12 +721,22 @@
 }
 
 /* Tracklist scrollbar */
+[data-theme="myspace"] #music .styled-scrollbar::-webkit-scrollbar-track {
+    background: #0c0c22;
+}
+
 [data-theme="myspace"] #music .styled-scrollbar::-webkit-scrollbar-thumb {
-    background: #3a3a5a;
+    background: linear-gradient(180deg, #4a4a6a, #3a3a5a);
+    border: 1px solid #2a2a50;
 }
 
 [data-theme="myspace"] #music .styled-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #4a4a6a;
+    background: linear-gradient(180deg, #5a5a7a, #4a4a6a);
+}
+
+/* Firefox */
+[data-theme="myspace"] #music .styled-scrollbar {
+    scrollbar-color: #3a3a5a #0c0c22;
 }
 
 /* Track rows: dark alternating */
@@ -774,32 +784,68 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Track play buttons: aqua blue */
+/* Track play buttons: mini CD disc */
 [data-theme="myspace"] .track-play-btn {
-    background: linear-gradient(180deg, #5aacff, #3a8ae0) !important;
-    border: 1px solid #2a7ad0;
+    background:
+        conic-gradient(
+            from 0deg,
+            rgba(255, 80, 80, 0.15),
+            rgba(255, 200, 50, 0.12),
+            rgba(80, 255, 80, 0.15),
+            rgba(50, 180, 255, 0.12),
+            rgba(140, 80, 255, 0.15),
+            rgba(255, 80, 180, 0.12),
+            rgba(255, 80, 80, 0.15)
+        ),
+        linear-gradient(135deg, #d8d8e4, #c0c0cc, #d0d0dc, #b0b0bc) !important;
+    border: 1px solid #9a9ab0;
     border-radius: 50% !important;
-    color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transition: all 0.15s;
+    color: #2a2a3a;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 3px rgba(160, 160, 180, 0.3),
+        inset 0 0 0 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
 }
 
 [data-theme="myspace"] .track-play-btn:hover {
-    background: linear-gradient(180deg, #6abcff, #4a9af0) !important;
-    box-shadow: 0 2px 6px rgba(58, 138, 224, 0.4);
+    background:
+        conic-gradient(
+            from 30deg,
+            rgba(255, 80, 80, 0.25),
+            rgba(255, 200, 50, 0.2),
+            rgba(80, 255, 80, 0.25),
+            rgba(50, 180, 255, 0.2),
+            rgba(140, 80, 255, 0.25),
+            rgba(255, 80, 180, 0.2),
+            rgba(255, 80, 80, 0.25)
+        ),
+        linear-gradient(135deg, #e4e4f0, #ccccdc, #dcdce8, #c0c0cc) !important;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 3px rgba(160, 160, 180, 0.4),
+        inset 0 0 0 4px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="myspace"] .track-play-btn:active {
-    background: linear-gradient(180deg, #3a8ae0, #2a6ac0) !important;
+    background:
+        conic-gradient(
+            from 60deg,
+            rgba(255, 80, 80, 0.2),
+            rgba(255, 200, 50, 0.15),
+            rgba(80, 255, 80, 0.2),
+            rgba(50, 180, 255, 0.15),
+            rgba(140, 80, 255, 0.2),
+            rgba(255, 80, 180, 0.15),
+            rgba(255, 80, 80, 0.2)
+        ),
+        linear-gradient(135deg, #c0c0cc, #b0b0bc, #c8c8d4, #a8a8b8) !important;
     transform: translateY(1px);
 }
 
-/* Mobile: hide CD label, reduce header padding */
+/* Mobile: keep CD label, ensure content clears it */
 @media (max-width: 640px) {
-    [data-theme="myspace"] #now-playing::after {
-        display: none;
-    }
-    [data-theme="myspace"] #np-active > div:first-child {
-        padding-top: 1rem;
+    [data-theme="myspace"] #np-idle {
+        padding-top: 2rem;
     }
 }
