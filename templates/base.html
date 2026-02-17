@@ -104,8 +104,17 @@
                 <a href="#music" class="text-sm font-medium text-th-text-nav hover:text-th-accent transition-colors">Music</a>
                 <a href="#about" class="text-sm font-medium text-th-text-nav hover:text-th-accent transition-colors">About</a>
                 <div id="theme-picker" class="relative">
-                    <button id="theme-toggle" class="p-2 rounded-lg text-th-text-muted hover:text-th-accent hover:bg-th-accent-hover-bg transition-colors" aria-label="Change theme" aria-expanded="false" aria-haspopup="listbox">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="theme-toggle" class="p-2 rounded-lg transition-all duration-200" aria-label="Change theme" aria-expanded="false" aria-haspopup="listbox">
+                        <svg class="w-5 h-5" fill="none" stroke="url(#theme-rainbow)" viewBox="0 0 24 24">
+                            <defs>
+                                <linearGradient id="theme-rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff6b6b"/>
+                                    <stop offset="25%" stop-color="#ffd93d"/>
+                                    <stop offset="50%" stop-color="#6bcb77"/>
+                                    <stop offset="75%" stop-color="#4d96ff"/>
+                                    <stop offset="100%" stop-color="#9b59b6"/>
+                                </linearGradient>
+                            </defs>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
                         </svg>
                     </button>

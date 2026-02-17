@@ -3,6 +3,19 @@
    Add a new theme by creating a [data-theme="name"] block.
    ══════════════════════════════════════════════════ */
 
+/* ── Theme toggle button ── */
+#theme-toggle:hover {
+    transform: scale(1.15);
+    filter: brightness(1.3) saturate(1.4);
+}
+
+/* Retro: CRT phosphor rainbow */
+[data-theme="retro"] #theme-toggle svg stop:nth-child(1) { stop-color: #ff3c3c; }
+[data-theme="retro"] #theme-toggle svg stop:nth-child(2) { stop-color: #ffb000; }
+[data-theme="retro"] #theme-toggle svg stop:nth-child(3) { stop-color: #33ff33; }
+[data-theme="retro"] #theme-toggle svg stop:nth-child(4) { stop-color: #00ffc8; }
+[data-theme="retro"] #theme-toggle svg stop:nth-child(5) { stop-color: #cc8800; }
+
 /* ── Light theme (default) ── */
 :root,
 [data-theme="light"] {
