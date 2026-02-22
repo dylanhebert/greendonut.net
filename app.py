@@ -93,7 +93,7 @@ GAME_DEV = [
     {
         "name": "Dead High",
         "game": "Call of Duty: Black Ops III",
-        "description": "A custom zombies map set at Wellington High School. Features a full original storyline, custom wonder weapons, quest lines, and its own save & leaderboard systems.",
+        "description": "A fully custom Call of Duty zombies experience set at Wellington High School during a 5G-triggered outbreak.",
         "players": "128,000+",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=885119667",
         "logo_clean": "mods/deadhigh2.png",
@@ -105,6 +105,13 @@ GAME_DEV = [
             "mods/deadhigh_steam_10.jpg",
             "mods/deadhigh_steam_13.jpg",
         ],
+        "tech": ["GSC", "Radiant", "Lua", "C++", "Blender", "Maya"],
+        "features": [
+            "Original storyline with custom wonder weapons",
+            "Multi-step Easter egg quest lines",
+            "Custom GobbleGums, ammo tiers, and weapon mastery",
+            "Built-in save system and online leaderboards",
+        ],
     },
     {
         "name": "Zombie Royale",
@@ -113,6 +120,13 @@ GAME_DEV = [
         "players": "7,400+",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2873503816",
         "image": "mods/zr_thumbnail_wide.jpg",
+        "tech": ["GSC", "Radiant", "Lua", "C++"],
+        "features": [
+            "Three-phase collapse with shrinking circle",
+            "Works on any stock or custom map",
+            "4 special modes after first victory",
+            "Solo and co-op support",
+        ],
     },
 ]
 

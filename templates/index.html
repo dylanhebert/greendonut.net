@@ -243,6 +243,23 @@
                     <span class="text-[11px] sm:text-xs font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ mod.game }}</span>
                 </div>
                 <p class="text-sm text-th-text-secondary mb-3">{{ mod.description }}</p>
+                {% if mod.tech %}
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                    {% for tech in mod.tech %}
+                    <span class="text-[11px] font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if mod.features %}
+                <ul class="space-y-1.5 mb-4">
+                    {% for feature in mod.features %}
+                    <li class="flex items-start gap-2 text-sm text-th-text-secondary">
+                        <span class="text-th-accent mt-0.5 flex-shrink-0">&bull;</span>
+                        {{ feature }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <div class="flex items-center justify-between">
                     <span class="text-xs text-th-text-muted">{{ mod.players }} players</span>
                     <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
@@ -254,7 +271,7 @@
         <a href="{{ mod.url }}" target="_blank" rel="noopener"
            class="scroll-reveal scroll-delay-2 group block bg-th-surface rounded-xl border border-th-border shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
             <div class="flex flex-col sm:flex-row">
-                <div class="sm:w-48 aspect-video sm:aspect-auto flex-shrink-0 bg-th-surface-alt overflow-hidden">
+                <div class="sm:w-64 aspect-video sm:aspect-auto flex-shrink-0 bg-th-surface-alt overflow-hidden">
                     <img src="{{ url_for('static', filename='images/' + mod.image) }}"
                          alt="{{ mod.name }}"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -264,7 +281,24 @@
                         <h3 class="text-lg font-semibold group-hover:text-th-accent transition-colors whitespace-nowrap">{{ mod.name }}</h3>
                         <span class="text-xs font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full whitespace-nowrap">{{ mod.game }}</span>
                     </div>
-                    <p class="text-sm text-th-text-secondary mb-2">{{ mod.description }}</p>
+                    <p class="text-sm text-th-text-secondary mb-3">{{ mod.description }}</p>
+                    {% if mod.tech %}
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        {% for tech in mod.tech %}
+                        <span class="text-[11px] font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if mod.features %}
+                    <ul class="space-y-1.5 mb-4">
+                        {% for feature in mod.features %}
+                        <li class="flex items-start gap-2 text-sm text-th-text-secondary">
+                            <span class="text-th-accent mt-0.5 flex-shrink-0">&bull;</span>
+                            {{ feature }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     <div class="flex items-center justify-between">
                         <span class="text-xs text-th-text-muted">{{ mod.players }} players</span>
                         <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
