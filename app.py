@@ -45,6 +45,7 @@ PROJECTS = [
         "description": "Recipes and food tips collected from cooking conversations with AI.",
         "url": "https://chattyfoods.greendonut.net",
         "image": "chattyfoods-banner.svg",
+        "icon": "chattyfoods-icon.svg",
         "color": "emerald",
         "tech": ["Flask", "SQLite", "Tailwind CSS", "Claude AI"],
         "features": [
