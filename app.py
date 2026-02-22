@@ -36,7 +36,7 @@ PROJECTS = [
         "image": "deadhighstats.jpg",
         "icon": "deadhighstats-icon.png",
         "color": "red",
-        "tech": ["Django", "SQLite", "Plotly", "Steam OAuth"],
+        "tech": ["Django", "PostgreSQL", "Plotly", "Steam OAuth"],
         "features": [
             "40+ leaderboard categories",
             "Real-time active game tracking",
