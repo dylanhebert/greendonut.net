@@ -22,6 +22,139 @@
     </p>
     <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         {% for project in projects %}
+        {% if project.private %}
+        <!-- Private Project Card -->
+        <div class="scroll-reveal scroll-delay-{{ loop.index }} block bg-th-surface rounded-xl border border-th-border shadow-sm transition-all duration-300 overflow-hidden
+                    {% if project.color == 'emerald' %}border-t-4 border-t-emerald-500
+                    {% elif project.color == 'red' %}border-t-4 border-t-red-500
+                    {% elif project.color == 'violet' %}border-t-4 border-t-violet-500
+                    {% elif project.color == 'amber' %}border-t-4 border-t-amber-500
+                    {% endif %}">
+            <!-- Mock chart illustration -->
+            <div class="aspect-video bg-[#131a24] overflow-hidden relative">
+                <svg class="w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Grid lines -->
+                    <line x1="0" y1="45" x2="400" y2="45" stroke="#1e2d3d" stroke-width="0.5"/>
+                    <line x1="0" y1="90" x2="400" y2="90" stroke="#1e2d3d" stroke-width="0.5"/>
+                    <line x1="0" y1="135" x2="400" y2="135" stroke="#1e2d3d" stroke-width="0.5"/>
+                    <line x1="0" y1="180" x2="400" y2="180" stroke="#1e2d3d" stroke-width="0.5"/>
+                    <!-- Volume bars -->
+                    <rect x="20" y="185" width="8" height="25" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="36" y="190" width="8" height="20" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="52" y="180" width="8" height="30" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="68" y="188" width="8" height="22" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="84" y="192" width="8" height="18" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="100" y="178" width="8" height="32" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="116" y="185" width="8" height="25" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="132" y="190" width="8" height="20" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="148" y="195" width="8" height="15" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="164" y="182" width="8" height="28" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="180" y="175" width="8" height="35" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="196" y="188" width="8" height="22" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="212" y="183" width="8" height="27" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="228" y="190" width="8" height="20" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="244" y="186" width="8" height="24" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="260" y="180" width="8" height="30" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="276" y="172" width="8" height="38" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="292" y="178" width="8" height="32" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="308" y="185" width="8" height="25" rx="1" fill="#ef4444" opacity="0.25"/>
+                    <rect x="324" y="170" width="8" height="40" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="340" y="176" width="8" height="34" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="356" y="182" width="8" height="28" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <rect x="372" y="168" width="8" height="42" rx="1" fill="#22c55e" opacity="0.25"/>
+                    <!-- Candlesticks -->
+                    <!-- Wick lines -->
+                    <line x1="24" y1="95" x2="24" y2="135" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="40" y1="90" x2="40" y2="128" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="56" y1="98" x2="56" y2="140" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="72" y1="85" x2="72" y2="125" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="88" y1="88" x2="88" y2="122" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="104" y1="100" x2="104" y2="142" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="120" y1="92" x2="120" y2="130" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="136" y1="88" x2="136" y2="125" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="152" y1="95" x2="152" y2="132" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="168" y1="80" x2="168" y2="120" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="184" y1="72" x2="184" y2="112" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="200" y1="85" x2="200" y2="125" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="216" y1="78" x2="216" y2="115" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="232" y1="75" x2="232" y2="110" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="248" y1="70" x2="248" y2="108" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="264" y1="82" x2="264" y2="120" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="280" y1="62" x2="280" y2="102" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="296" y1="65" x2="296" y2="100" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="312" y1="72" x2="312" y2="108" stroke="#ef4444" stroke-width="1"/>
+                    <line x1="328" y1="55" x2="328" y2="95" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="344" y1="52" x2="344" y2="90" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="360" y1="58" x2="360" y2="92" stroke="#22c55e" stroke-width="1"/>
+                    <line x1="376" y1="45" x2="376" y2="85" stroke="#22c55e" stroke-width="1"/>
+                    <!-- Candle bodies -->
+                    <rect x="20" y="105" width="8" height="20" rx="1" fill="#22c55e"/>
+                    <rect x="36" y="98" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="52" y="108" width="8" height="22" rx="1" fill="#ef4444"/>
+                    <rect x="68" y="95" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="84" y="96" width="8" height="16" rx="1" fill="#22c55e"/>
+                    <rect x="100" y="110" width="8" height="22" rx="1" fill="#ef4444"/>
+                    <rect x="116" y="100" width="8" height="20" rx="1" fill="#22c55e"/>
+                    <rect x="132" y="96" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="148" y="103" width="8" height="20" rx="1" fill="#ef4444"/>
+                    <rect x="164" y="88" width="8" height="22" rx="1" fill="#22c55e"/>
+                    <rect x="180" y="80" width="8" height="20" rx="1" fill="#22c55e"/>
+                    <rect x="196" y="95" width="8" height="20" rx="1" fill="#ef4444"/>
+                    <rect x="212" y="86" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="228" y="82" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="244" y="78" width="8" height="20" rx="1" fill="#22c55e"/>
+                    <rect x="260" y="92" width="8" height="18" rx="1" fill="#ef4444"/>
+                    <rect x="276" y="70" width="8" height="22" rx="1" fill="#22c55e"/>
+                    <rect x="292" y="72" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="308" y="80" width="8" height="18" rx="1" fill="#ef4444"/>
+                    <rect x="324" y="62" width="8" height="22" rx="1" fill="#22c55e"/>
+                    <rect x="340" y="60" width="8" height="20" rx="1" fill="#22c55e"/>
+                    <rect x="356" y="65" width="8" height="18" rx="1" fill="#22c55e"/>
+                    <rect x="372" y="52" width="8" height="22" rx="1" fill="#22c55e"/>
+                    <!-- Mock price label -->
+                    <rect x="350" y="38" width="50" height="16" rx="3" fill="#22c55e" opacity="0.9"/>
+                    <text x="375" y="49" text-anchor="middle" fill="white" font-size="9" font-family="monospace">$184.32</text>
+                    <!-- Dashed current price line -->
+                    <line x1="0" y1="52" x2="370" y2="52" stroke="#22c55e" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.5"/>
+                </svg>
+                {% if project.icon %}
+                <img src="{{ url_for('static', filename='images/' + project.icon) }}"
+                     alt=""
+                     class="absolute bottom-3 right-3 w-12 h-12 opacity-60 drop-shadow-lg">
+                {% endif %}
+            </div>
+            <div class="p-5">
+                <div class="flex items-center justify-between mb-1">
+                    <h3 class="text-lg font-semibold">{{ project.name }}</h3>
+                    <svg class="w-4 h-4 text-th-text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </div>
+                <p class="text-sm text-th-text-secondary mb-4">{{ project.description }}</p>
+                {% if project.tech %}
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                    {% for tech in project.tech %}
+                    <span class="text-[11px] font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if project.features %}
+                <ul class="space-y-1.5 mb-4">
+                    {% for feature in project.features %}
+                    <li class="flex items-start gap-2 text-sm text-th-text-secondary">
+                        <span class="text-th-accent mt-0.5 flex-shrink-0">&bull;</span>
+                        {{ feature }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <span class="text-sm font-medium text-th-text-muted">
+                    Private Tool
+                </span>
+            </div>
+        </div>
+        {% else %}
+        <!-- Public Project Card -->
         <a href="{{ project.url }}" target="_blank" rel="noopener"
            class="scroll-reveal scroll-delay-{{ loop.index }} group block bg-th-surface rounded-xl border border-th-border shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden
                   {% if project.color == 'emerald' %}border-t-4 border-t-emerald-500
@@ -47,6 +180,7 @@
                 </span>
             </div>
         </a>
+        {% endif %}
         {% endfor %}
     </div>
 </section>

@@ -48,6 +48,20 @@ PROJECTS = [
         "icon": "greenflips-icon.svg",
         "color": "amber",
     },
+    {
+        "name": "Green Stonks",
+        "description": "Swing-trading dashboard and stock screener with real-time scoring and AI-powered analysis.",
+        "color": "emerald",
+        "private": True,
+        "icon": "greenstonks-icon.svg",
+        "tech": ["FastAPI", "HTMX", "SQLite", "TradingView Charts", "Claude AI", "Alpaca API"],
+        "features": [
+            "Real-time multi-factor stock scoring",
+            "AI-powered trade analysis",
+            "Automated autopilot trading",
+            "Portfolio tracking with SPY benchmark",
+        ],
+    },
 ]
 
 SOCIAL_LINKS = [
