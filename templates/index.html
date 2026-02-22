@@ -175,6 +175,23 @@
             <div class="p-5">
                 <h3 class="text-lg font-semibold mb-1 group-hover:text-th-accent transition-colors">{{ project.name }}</h3>
                 <p class="text-sm text-th-text-secondary mb-3">{{ project.description }}</p>
+                {% if project.tech %}
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                    {% for tech in project.tech %}
+                    <span class="text-[11px] font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if project.features %}
+                <ul class="space-y-1.5 mb-4">
+                    {% for feature in project.features %}
+                    <li class="flex items-start gap-2 text-sm text-th-text-secondary">
+                        <span class="text-th-accent mt-0.5 flex-shrink-0">&bull;</span>
+                        {{ feature }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <span class="text-sm font-medium text-th-accent group-hover:underline">
                     Visit &rarr;
                 </span>

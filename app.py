@@ -32,6 +32,13 @@ PROJECTS = [
         "url": "https://deadhighstats.com",
         "image": "deadhighstats.jpg",
         "color": "red",
+        "tech": ["Django", "SQLite", "Plotly", "Steam OAuth"],
+        "features": [
+            "40+ leaderboard categories",
+            "Real-time active game tracking",
+            "Steam-authenticated player profiles",
+            "Detailed per-game statistics",
+        ],
     },
     {
         "name": "Chatty Foods",
@@ -39,6 +46,13 @@ PROJECTS = [
         "url": "https://chattyfoods.greendonut.net",
         "image": "chattyfoods-banner.svg",
         "color": "emerald",
+        "tech": ["Flask", "SQLite", "Tailwind CSS", "Claude AI"],
+        "features": [
+            "Recipe and food tip management",
+            "AI conversation extraction workflow",
+            "Full-text search and categories",
+            "Discord webhook notifications",
+        ],
     },
     {
         "name": "Green Flips",
@@ -47,6 +61,13 @@ PROJECTS = [
         "image": "greenflips-banner.svg",
         "icon": "greenflips-icon.svg",
         "color": "amber",
+        "tech": ["FastAPI", "HTMX", "SQLite", "Plotly", "Claude AI", "Discord.py"],
+        "features": [
+            "Real-time OSRS flip opportunities",
+            "AI-powered daily investment picks",
+            "Interactive price history charts",
+            "Discord bot with live alerts",
+        ],
     },
     {
         "name": "Green Stonks",
