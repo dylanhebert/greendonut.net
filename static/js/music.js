@@ -30,6 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
     var canvas = document.getElementById("visualizer-canvas");
     var ctx = canvas ? canvas.getContext("2d") : null;
 
+    // ── Volume control DOM refs ──
+    var volumeSlider = document.getElementById("np-volume-slider");
+    var muteBtn = document.getElementById("np-mute");
+    var volIconOn = document.getElementById("vol-icon-on");
+    var volIconOff = document.getElementById("vol-icon-off");
+    var currentVolume = 1;
+    var isMuted = false;
+
+    // Restore saved volume
+    try {
+        var savedVol = localStorage.getItem("gd-volume");
+        if (savedVol !== null) {
+            currentVolume = parseFloat(savedVol);
+            if (volumeSlider) volumeSlider.value = Math.round(currentVolume * 100);
+        }
+    } catch (e) {}
+
     // ── Helpers ──
     function getColors() {
         var style = getComputedStyle(document.documentElement);
@@ -386,6 +403,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 players[index] = { ws: ws, row: row, sourceConnected: false };
 
+                // Apply saved volume
+                var mediaEl = ws.getMediaElement();
+                if (mediaEl) mediaEl.volume = isMuted ? 0 : currentVolume;
+
                 ws.on("finish", function () {
                     setPlayState(index, false);
                     playNext();
@@ -449,6 +470,60 @@ document.addEventListener("DOMContentLoaded", function () {
     if (npPrev) {
         npPrev.addEventListener("click", function () {
             playPrev();
+        });
+    }
+
+    // ── Volume control ──
+    function applyVolume(vol) {
+        Object.keys(players).forEach(function (key) {
+            var mediaEl = players[key].ws.getMediaElement();
+            if (mediaEl) mediaEl.volume = vol;
+        });
+    }
+
+    function updateVolumeIcon(vol) {
+        if (!volIconOn || !volIconOff) return;
+        volIconOn.classList.toggle("hidden", vol === 0);
+        volIconOff.classList.toggle("hidden", vol !== 0);
+    }
+
+    function updateSliderFill() {
+        if (!volumeSlider) return;
+        volumeSlider.style.setProperty("--vol-pct", volumeSlider.value + "%");
+    }
+
+    if (volumeSlider) {
+        updateSliderFill();
+        volumeSlider.addEventListener("input", function () {
+            var vol = parseInt(volumeSlider.value) / 100;
+            currentVolume = vol;
+            isMuted = false;
+            applyVolume(vol);
+            updateVolumeIcon(vol);
+            updateSliderFill();
+            try { localStorage.setItem("gd-volume", String(vol)); } catch (e) {}
+        });
+    }
+
+    if (muteBtn) {
+        muteBtn.addEventListener("click", function () {
+            if (isMuted) {
+                isMuted = false;
+                applyVolume(currentVolume);
+                updateVolumeIcon(currentVolume);
+                if (volumeSlider) {
+                    volumeSlider.value = Math.round(currentVolume * 100);
+                    updateSliderFill();
+                }
+            } else {
+                isMuted = true;
+                applyVolume(0);
+                updateVolumeIcon(0);
+                if (volumeSlider) {
+                    volumeSlider.value = 0;
+                    updateSliderFill();
+                }
+            }
         });
     }
 
