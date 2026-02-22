@@ -55,18 +55,19 @@
     66% { transform: translateX(-20px) translateY(-10px); }
 }
 
-/* Retro: CRT noise grain + scan lines + vignette */
+/* Retro: CRT noise grain + scan lines + flicker */
 [data-theme="retro"] .bg-effects {
-    box-shadow: inset 0 0 150px 50px rgba(0, 0, 0, 0.5);
+    animation: crt-flicker 8s linear infinite;
+    will-change: opacity;
 }
 
 [data-theme="retro"] .bg-effects::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image: url("/static/images/noise.png");
     background-repeat: repeat;
-    background-size: 200px 200px;
+    background-size: 128px 128px;
     opacity: 0.08;
 }
 
@@ -81,12 +82,7 @@
         rgba(0, 0, 0, 0.08) 3px,
         rgba(0, 0, 0, 0.08) 4px
     );
-    animation: scanline-pulse 6s ease-in-out infinite;
-}
-
-@keyframes scanline-pulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
+    opacity: 0.9;
 }
 
 /* Tape reel spin (retro cassette deck) */
