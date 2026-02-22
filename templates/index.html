@@ -242,6 +242,22 @@
                     <h3 class="text-base sm:text-lg font-semibold group-hover:text-th-accent transition-colors">{{ mod.name }}</h3>
                     <span class="text-[11px] sm:text-xs font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full">{{ mod.game }}</span>
                 </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-2">
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-th-text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="text-sm font-semibold text-th-text" data-steam-total="{{ mod.steam_id }}">{{ mod.total_players }}</span>
+                        <span class="text-sm text-th-text-muted">total players</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-th-text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        <span class="text-sm font-semibold text-th-text" data-steam-id="{{ mod.steam_id }}">{{ mod.players }}</span>
+                        <span class="text-sm text-th-text-muted">subscribers</span>
+                    </div>
+                </div>
                 <p class="text-sm text-th-text-secondary mb-3">{{ mod.description }}</p>
                 {% if mod.tech %}
                 <div class="flex flex-wrap gap-1.5 mb-4">
@@ -260,10 +276,7 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-th-text-muted">{{ mod.players }} players</span>
-                    <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
-                </div>
+                <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
             </div>
         </a>
         {% else %}
@@ -280,6 +293,22 @@
                     <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 mb-1">
                         <h3 class="text-lg font-semibold group-hover:text-th-accent transition-colors whitespace-nowrap">{{ mod.name }}</h3>
                         <span class="text-xs font-medium text-th-text-secondary bg-th-surface-alt px-2 py-0.5 rounded-full whitespace-nowrap">{{ mod.game }}</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-2">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-th-text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            <span class="text-sm font-semibold text-th-text" data-steam-total="{{ mod.steam_id }}">{{ mod.total_players }}</span>
+                            <span class="text-sm text-th-text-muted">total players</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-th-text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            <span class="text-sm font-semibold text-th-text" data-steam-id="{{ mod.steam_id }}">{{ mod.players }}</span>
+                            <span class="text-sm text-th-text-muted">subscribers</span>
+                        </div>
                     </div>
                     <p class="text-sm text-th-text-secondary mb-3">{{ mod.description }}</p>
                     {% if mod.tech %}
@@ -299,10 +328,7 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs text-th-text-muted">{{ mod.players }} players</span>
-                        <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
-                    </div>
+                    <span class="text-sm font-medium text-th-accent group-hover:underline">View on Steam &rarr;</span>
                 </div>
             </div>
         </a>
@@ -463,4 +489,23 @@
         </div>
     </div>
 </section>
+<script>
+fetch("/api/steam-stats")
+    .then(r => r.json())
+    .then(data => {
+        document.querySelectorAll("[data-steam-id]").forEach(el => {
+            const stats = data[el.dataset.steamId];
+            if (stats && typeof stats.subscribers === "number") {
+                el.textContent = stats.subscribers.toLocaleString();
+            }
+        });
+        document.querySelectorAll("[data-steam-total]").forEach(el => {
+            const stats = data[el.dataset.steamTotal];
+            if (stats && typeof stats.total_players === "number") {
+                el.textContent = stats.total_players.toLocaleString();
+            }
+        });
+    })
+    .catch(() => {});
+</script>
 {% endblock %}

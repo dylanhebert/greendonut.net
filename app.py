@@ -1,7 +1,10 @@
 import json
 import os
+import time
+import urllib.request
+import urllib.parse
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, jsonify, render_template, send_from_directory
 
 app = Flask(__name__)
 
@@ -95,6 +98,8 @@ GAME_DEV = [
         "name": "Dead High",
         "game": "Call of Duty: Black Ops III",
         "description": "A fully custom Call of Duty zombies experience set at Wellington High School during a 5G-triggered outbreak.",
+        "steam_id": "885119667",
+        "total_players": "263,000+",
         "players": "128,000+",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=885119667",
         "logo_clean": "mods/deadhigh2.png",
@@ -118,6 +123,8 @@ GAME_DEV = [
         "name": "Zombie Royale",
         "game": "Call of Duty: Black Ops III",
         "description": "A battle royale mode for zombies. Survive a shrinking circle across three phases on any map — solo or co-op.",
+        "steam_id": "2873503816",
+        "total_players": "22,000+",
         "players": "7,400+",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2873503816",
         "image": "mods/zr_thumbnail_wide.jpg",
@@ -130,6 +137,58 @@ GAME_DEV = [
         ],
     },
 ]
+
+
+_steam_cache = {"data": {}, "fetched_at": 0}
+_STEAM_CACHE_TTL = 6 * 60 * 60  # 6 hours
+
+
+def _fetch_steam_stats():
+    """Fetch live subscriber counts from the Steam Workshop API."""
+    ids = [mod["steam_id"] for mod in GAME_DEV]
+    body = urllib.parse.urlencode(
+        {"itemcount": len(ids)}
+        | {f"publishedfileids[{i}]": sid for i, sid in enumerate(ids)}
+    ).encode()
+    req = urllib.request.Request(
+        "https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/",
+        data=body,
+    )
+    with urllib.request.urlopen(req, timeout=5) as resp:
+        data = json.loads(resp.read())
+    result = {}
+    for item in data["response"]["publishedfiledetails"]:
+        result[item["publishedfileid"]] = {
+            "total_players": item["lifetime_subscriptions"],
+            "subscribers": item["subscriptions"],
+        }
+    return result
+
+
+def _get_steam_stats():
+    """Return cached stats, refreshing from Steam if stale."""
+    now = time.time()
+    if now - _steam_cache["fetched_at"] < _STEAM_CACHE_TTL and _steam_cache["data"]:
+        return _steam_cache["data"]
+    try:
+        _steam_cache["data"] = _fetch_steam_stats()
+        _steam_cache["fetched_at"] = now
+    except Exception:
+        # On failure, return whatever we last had (or fallback values)
+        if not _steam_cache["data"]:
+            _steam_cache["data"] = {
+                mod["steam_id"]: {
+                    "total_players": mod["total_players"],
+                    "subscribers": mod["players"],
+                }
+                for mod in GAME_DEV
+            }
+    return _steam_cache["data"]
+
+
+@app.route("/api/steam-stats")
+def steam_stats():
+    return jsonify(_get_steam_stats())
 
 
 @app.route("/")
