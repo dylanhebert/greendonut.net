@@ -34,6 +34,7 @@ PROJECTS = [
         "description": "Call of Duty Zombies high round leaderboard tracker and statistics.",
         "url": "https://deadhighstats.com",
         "image": "deadhighstats.jpg",
+        "icon": "deadhighstats-icon.png",
         "color": "red",
         "tech": ["Django", "SQLite", "Plotly", "Steam OAuth"],
         "features": [
