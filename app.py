@@ -60,6 +60,21 @@ PROJECTS = [
         ],
     },
     {
+        "name": "Showtime Snooper",
+        "description": "Cinema seat watcher that alerts when enough seats open up side by side where you want to sit.",
+        "url": "https://showtimes.greendonut.net",
+        "image": "showtimesnooper-banner.svg",
+        "icon": "showtimesnooper-icon.svg",
+        "color": "gold",
+        "tech": ["Flask", "SQLite", "HTMX", "Pushover", "Gunicorn"],
+        "features": [
+            "Alerts on adjacent seats opening in your zone",
+            "Real auditorium maps with drag-select seat picker",
+            "Polite background polling on a request budget",
+            "Public demo built from synthetic data",
+        ],
+    },
+    {
         "name": "Green Flips",
         "description": "Real-time Grand Exchange flip tracker for Old School RuneScape.",
         "url": "https://flips.greendonut.net",

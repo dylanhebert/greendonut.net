@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <!-- A mock of the Showtime Snooper dashboard, drawn rather than screenshotted,
+       in the app's own palette: near-black warmed off blue, marquee gold for
+       anything actionable, and four state hues. Names are the public demo's
+       invented ones. System fonts only, no embedded faces.
+
+       The card overlays its project icon at bottom right, which on this canvas
+       is roughly x 536-619 by y 256-339. Nothing that has to be read goes
+       there; that corner is left to the back rows of the house. -->
+  <defs>
+    <linearGradient id="ss-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#201a26"/>
+      <stop offset="1" stop-color="#17141d"/>
+    </linearGradient>
+    <radialGradient id="ss-glow" cx="0.5" cy="0" r="0.8">
+      <stop offset="0" stop-color="#f5b942" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#f5b942" stop-opacity="0"/>
+    </radialGradient>
+    <!-- The marquee bulbs under the header bar. -->
+    <pattern id="ss-bulbs" width="14" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="2.5" r="1.7" fill="#f5b942" opacity="0.85"/>
+    </pattern>
+    <!-- One row of the house. Three blocks split by aisles, because seats
+         either side of an aisle are not neighbours. The rows carry no fill of
+         their own so each placement inherits its state colour. -->
+    <g id="ss-row">
+      <rect x="432" width="8" height="6" rx="1.5"/><rect x="443" width="8" height="6" rx="1.5"/><rect x="454" width="8" height="6" rx="1.5"/><rect x="465" width="8" height="6" rx="1.5"/><rect x="476" width="8" height="6" rx="1.5"/>
+      <rect x="491" width="8" height="6" rx="1.5"/><rect x="502" width="8" height="6" rx="1.5"/><rect x="513" width="8" height="6" rx="1.5"/><rect x="524" width="8" height="6" rx="1.5"/><rect x="535" width="8" height="6" rx="1.5"/>
+      <rect x="550" width="8" height="6" rx="1.5"/><rect x="561" width="8" height="6" rx="1.5"/><rect x="572" width="8" height="6" rx="1.5"/><rect x="583" width="8" height="6" rx="1.5"/><rect x="594" width="8" height="6" rx="1.5"/>
+    </g>
+    <!-- The same row with the centre block left out, for the rows the zone covers. -->
+    <g id="ss-row-sides">
+      <rect x="432" width="8" height="6" rx="1.5"/><rect x="443" width="8" height="6" rx="1.5"/><rect x="454" width="8" height="6" rx="1.5"/><rect x="465" width="8" height="6" rx="1.5"/><rect x="476" width="8" height="6" rx="1.5"/>
+      <rect x="550" width="8" height="6" rx="1.5"/><rect x="561" width="8" height="6" rx="1.5"/><rect x="572" width="8" height="6" rx="1.5"/><rect x="583" width="8" height="6" rx="1.5"/><rect x="594" width="8" height="6" rx="1.5"/>
+    </g>
+  </defs>
+
+  <rect width="640" height="360" fill="#0e0c11"/>
+  <rect width="640" height="210" fill="url(#ss-glow)"/>
+
+  <!-- ── Header bar ── -->
+  <rect width="640" height="50" fill="url(#ss-bar)"/>
+  <rect y="44" width="640" height="5" fill="url(#ss-bulbs)"/>
+  <rect y="49" width="640" height="1" fill="#2c2633"/>
+
+  <g transform="translate(24 9.5) scale(0.8)">
+    <path d="M4 10h24v3.4a2.6 2.6 0 0 0 0 5.2V22H4v-3.4a2.6 2.6 0 0 0 0-5.2z" fill="#f5b942"/>
+    <circle cx="16" cy="16" r="2.4" fill="#17141d"/>
+  </g>
+  <text x="54" y="27" font-family="system-ui, sans-serif" font-size="16" fill="#f0eae1">Showtime <tspan font-weight="700" fill="#f5b942">Snooper</tspan></text>
+  <text x="528" y="27" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#f5b942">Snoops</text>
+  <text x="584" y="27" font-family="system-ui, sans-serif" font-size="13" fill="#9b8fa3">Events</text>
+
+  <!-- ── Stats row ── -->
+  <rect x="24" y="64" width="154" height="28" rx="14" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="101" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9b8fa3"><tspan font-size="13" font-weight="700" fill="#f0eae1">2</tspan> snoops on, <tspan font-size="13" font-weight="700" fill="#f0eae1">1</tspan> paused</text>
+
+  <rect x="190" y="64" width="154" height="28" rx="14" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="267" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9b8fa3"><tspan font-size="13" font-weight="700" fill="#f0eae1">18</tspan> screenings watched</text>
+
+  <rect x="356" y="64" width="67" height="28" rx="14" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="389" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9b8fa3"><tspan font-size="13" font-weight="700" fill="#e8863a">8</tspan> armed</text>
+
+  <rect x="435" y="64" width="181" height="28" rx="14" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="525" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9b8fa3"><tspan font-size="13" font-weight="700" fill="#f0eae1">42%</tspan> of the request budget</text>
+
+  <!-- ── The watch card ── -->
+  <rect x="24" y="104" width="382" height="232" rx="10" fill="#17141d" stroke="#2c2633"/>
+
+  <!-- Generated poster: the demo draws its own rather than hotlinking one. -->
+  <rect x="40" y="120" width="48" height="72" rx="4" fill="#17130f"/>
+  <rect x="41.6" y="121.6" width="44.8" height="68.8" fill="none" stroke="#f5b942" stroke-width="0.6" opacity="0.55"/>
+  <g fill="#f5b942" opacity="0.75">
+    <circle cx="43.5" cy="124.2" r="0.65"/>
+    <circle cx="48.6" cy="124.2" r="0.65"/>
+    <circle cx="53.7" cy="124.2" r="0.65"/>
+    <circle cx="58.8" cy="124.2" r="0.65"/>
+    <circle cx="64.0" cy="124.2" r="0.65"/>
+    <circle cx="69.1" cy="124.2" r="0.65"/>
+    <circle cx="74.2" cy="124.2" r="0.65"/>
+    <circle cx="79.3" cy="124.2" r="0.65"/>
+    <circle cx="84.4" cy="124.2" r="0.65"/>
+  </g>
+  <text x="64" y="155" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" fill="#f5b942">THE LONGEST</text>
+  <text x="64" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" fill="#f5b942">NIGHT</text>
+  <text x="64" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="5.5" fill="#c9bda8" opacity="0.8">2026</text>
+
+  <text x="98" y="139" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#f0eae1">The Longest Night <tspan font-size="12.5" font-weight="400" fill="#9b8fa3">(2026)</tspan></text>
+  <text x="98" y="158" font-family="system-ui, sans-serif" font-size="12" fill="#9b8fa3">The Grand Marquee &#183; IMAX 70MM</text>
+  <text x="98" y="176" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3">&#8220;Two in the centre, IMAX 70mm&#8221; &#183; 2 seats together</text>
+
+  <rect x="286" y="122" width="104" height="26" rx="7" fill="#f5b942"/>
+  <text x="338" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#05070d">View showtimes</text>
+
+  <!-- The split that answers the only question worth asking at a glance. -->
+  <rect x="40" y="196" width="56" height="26" rx="13" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="68" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3"><tspan font-size="12" font-weight="700" fill="#e8863a">8</tspan> armed</text>
+
+  <rect x="103" y="196" width="90" height="26" rx="13" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="148" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3"><tspan font-size="12" font-weight="700" fill="#58c07c">0</tspan> buyable now</text>
+
+  <rect x="200" y="196" width="73" height="26" rx="13" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="236" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3"><tspan font-size="12" font-weight="700" fill="#dc4f57">8</tspan> sold out</text>
+
+  <rect x="280" y="196" width="108" height="26" rx="13" fill="#0e0c11" stroke="#2c2633"/>
+  <text x="334" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3"><tspan font-size="12" font-weight="700" fill="#7b6f84">2</tspan> not yet polled</text>
+
+  <!-- Armed: the zone cannot give you the seats yet, so a change here alerts. -->
+  <text x="40" y="236" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.6" fill="#9b8fa3">ARMED <tspan font-size="10.5" font-weight="400" letter-spacing="0">  no 2 together yet, so these can alert</tspan></text>
+
+  <!-- "in zone" and "in a row" get mistaken for each other, and the difference
+       is the entire idea of the tool. Only the last column decides. -->
+  <text x="40" y="256" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3">when</text>
+  <text x="252" y="256" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3">free</text>
+  <text x="316" y="256" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3">in zone</text>
+  <text x="390" y="256" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="#9b8fa3">in a row</text>
+  <rect x="40" y="263" width="350" height="1" fill="#2c2633"/>
+
+  <g font-family="system-ui, sans-serif" font-size="12">
+    <text x="40" y="281" fill="#f5b942">Fri 07 Aug, 7:00pm</text>
+    <text x="252" y="281" text-anchor="end" fill="#f0eae1">62</text>
+    <text x="316" y="281" text-anchor="end" fill="#f0eae1">3</text>
+    <text x="390" y="281" text-anchor="end" fill="#f0eae1">1</text>
+
+    <text x="40" y="301" fill="#f5b942">Sat 08 Aug, 4:15pm</text>
+    <text x="252" y="301" text-anchor="end" fill="#f0eae1">48</text>
+    <text x="316" y="301" text-anchor="end" fill="#f0eae1">0</text>
+    <text x="390" y="301" text-anchor="end" fill="#f0eae1">0</text>
+
+    <text x="40" y="321" fill="#f5b942">Sat 08 Aug, 9:30pm</text>
+    <text x="252" y="321" text-anchor="end" fill="#f0eae1">71</text>
+    <text x="316" y="321" text-anchor="end" fill="#f0eae1">2</text>
+    <text x="390" y="321" text-anchor="end" fill="#f0eae1">1</text>
+  </g>
+
+  <!-- ── The auditorium ── -->
+  <rect x="418" y="104" width="198" height="232" rx="10" fill="#17141d" stroke="#2c2633"/>
+
+  <!-- The venue's own diagram is drawn for a light page and inverted here, so
+       the screen band reads light grey with the word in black. -->
+  <rect x="460" y="122" width="114" height="15" rx="7" fill="#cfd4dc"/>
+  <text x="517" y="133" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="1.2" fill="#17141d">SCREEN</text>
+
+  <!-- Outside the zone, receding. State is hue, never opacity: the first
+       version dimmed taken seats and the zone appeared to vanish. -->
+  <g fill="#aeb6c4" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.5">
+    <use href="#ss-row" y="150"/>
+    <use href="#ss-row" y="160"/>
+    <use href="#ss-row" y="170"/>
+    <use href="#ss-row" y="180"/>
+    <use href="#ss-row" y="190"/>
+    <use href="#ss-row-sides" y="200"/>
+    <use href="#ss-row-sides" y="210"/>
+    <use href="#ss-row-sides" y="220"/>
+    <use href="#ss-row-sides" y="230"/>
+    <use href="#ss-row-sides" y="240"/>
+    <use href="#ss-row" y="250"/>
+    <use href="#ss-row" y="260"/>
+    <use href="#ss-row" y="270"/>
+    <use href="#ss-row" y="280"/>
+    <use href="#ss-row" y="290"/>
+    <use href="#ss-row" y="300"/>
+    <use href="#ss-row" y="310"/>
+  </g>
+
+  <!-- The zone, stored as fractions of the seating box so it means the same
+       thing in any house. -->
+  <rect x="487" y="196" width="60" height="54" rx="4" fill="#f5b942" fill-opacity="0.05" stroke="#f5b942" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+  <!-- Blue means watching. -->
+  <g fill="#1f6feb" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1">
+    <rect x="502" y="200" width="8" height="6" rx="1.5"/><rect x="513" y="200" width="8" height="6" rx="1.5"/><rect x="524" y="200" width="8" height="6" rx="1.5"/><rect x="535" y="200" width="8" height="6" rx="1.5"/>
+    <rect x="491" y="210" width="8" height="6" rx="1.5"/><rect x="502" y="210" width="8" height="6" rx="1.5"/><rect x="513" y="210" width="8" height="6" rx="1.5"/><rect x="524" y="210" width="8" height="6" rx="1.5"/><rect x="535" y="210" width="8" height="6" rx="1.5"/>
+    <rect x="491" y="220" width="8" height="6" rx="1.5"/><rect x="502" y="220" width="8" height="6" rx="1.5"/><rect x="524" y="220" width="8" height="6" rx="1.5"/><rect x="535" y="220" width="8" height="6" rx="1.5"/>
+    <rect x="491" y="230" width="8" height="6" rx="1.5"/><rect x="502" y="230" width="8" height="6" rx="1.5"/><rect x="513" y="230" width="8" height="6" rx="1.5"/><rect x="524" y="230" width="8" height="6" rx="1.5"/><rect x="535" y="230" width="8" height="6" rx="1.5"/>
+    <rect x="491" y="240" width="8" height="6" rx="1.5"/><rect x="502" y="240" width="8" height="6" rx="1.5"/><rect x="513" y="240" width="8" height="6" rx="1.5"/><rect x="524" y="240" width="8" height="6" rx="1.5"/>
+  </g>
+
+  <!-- Green means watching and free right now. Three of them, no two side by
+       side, which is why this snoop is still armed rather than buyable. -->
+  <g fill="#1a9c3e" stroke="#0b3d19" stroke-width="1.5">
+    <rect x="491" y="200" width="8" height="6" rx="1.5"/>
+    <rect x="513" y="220" width="8" height="6" rx="1.5"/>
+    <rect x="535" y="240" width="8" height="6" rx="1.5"/>
+  </g>
+</svg>
