@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#21211e"/>
+      <stop offset="100%" style="stop-color:#161614"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#01a982"/>
+      <stop offset="100%" style="stop-color:#3ad0a8"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="600" height="340" fill="url(#bg)"/>
+  <rect x="1" y="1" width="598" height="338" fill="none" stroke="#01a982" stroke-opacity="0.12" rx="4"/>
+  <!-- Title -->
+  <text y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="700">
+    <tspan x="300" fill="#4ade80">Green</tspan><tspan fill="url(#teal)">MD</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="300" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" fill="#7a7a72">Markdown viewer built for watching AI write</text>
+  <!-- Mock document with change marks -->
+  <rect x="150" y="178" width="300" height="128" rx="8" fill="#1e1e1c" stroke="#33332f"/>
+  <!-- heading line -->
+  <rect x="174" y="196" width="130" height="10" rx="5" fill="#4a4a44"/>
+  <!-- plain text line -->
+  <rect x="174" y="216" width="240" height="8" rx="4" fill="#33332f"/>
+  <!-- rewritten line: amber bar + tinted text -->
+  <rect x="166" y="234" width="3" height="12" rx="1.5" fill="#d0a13f"/>
+  <rect x="174" y="236" width="210" height="8" rx="4" fill="#d0a13f" fill-opacity="0.35"/>
+  <!-- brand-new line: green bar + tinted text -->
+  <rect x="166" y="254" width="3" height="12" rx="1.5" fill="#5ca94f"/>
+  <rect x="174" y="256" width="252" height="8" rx="4" fill="#5ca94f" fill-opacity="0.35"/>
+  <!-- removed content: dashed seam -->
+  <line x1="174" y1="280" x2="426" y2="280" stroke="#b0605f" stroke-width="2" stroke-dasharray="6,4" stroke-opacity="0.7"/>
+  <!-- live pulse dot -->
+  <circle cx="438" cy="196" r="4" fill="#01a982"/>
+</svg>

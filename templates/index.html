@@ -31,6 +31,7 @@
                     {% elif project.color == 'amber' %}border-t-4 border-t-amber-500
                     {% elif project.color == 'gold' %}border-t-4 border-t-gold-500
                     {% elif project.color == 'magenta' %}border-t-4 border-t-magenta-500
+                    {% elif project.color == 'greenmd' %}border-t-4 border-t-greenmd-500
                     {% endif %}">
             <!-- Mock chart illustration -->
             <div class="aspect-video bg-[#131a24] overflow-hidden relative">
@@ -165,6 +166,7 @@
                   {% elif project.color == 'amber' %}border-t-4 border-t-amber-500
                   {% elif project.color == 'gold' %}border-t-4 border-t-gold-500
                   {% elif project.color == 'magenta' %}border-t-4 border-t-magenta-500
+                  {% elif project.color == 'greenmd' %}border-t-4 border-t-greenmd-500
                   {% endif %}">
             <div class="aspect-video bg-th-surface-alt overflow-hidden relative">
                 <img src="{{ url_for('static', filename='images/' + project.image) }}"
