@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <!-- A mock of the Concert Snooper dashboard, drawn rather than screenshotted,
+       in the app's own stage-light palette: near-black warmed off purple,
+       magenta for anything actionable, green/amber for onsale states. The
+       artists and venues are invented. System fonts only, no embedded faces.
+
+       The card overlays its project icon at bottom right, roughly x 536-619 by
+       y 256-339. Nothing that has to be read goes there. -->
+  <defs>
+    <linearGradient id="cs-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f1830"/>
+      <stop offset="1" stop-color="#171221"/>
+    </linearGradient>
+    <linearGradient id="cs-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f1830"/>
+      <stop offset="1" stop-color="#171221"/>
+    </linearGradient>
+    <!-- The stage lights the app paints its background with. -->
+    <radialGradient id="cs-glow-a" cx="0.28" cy="0" r="0.75">
+      <stop offset="0" stop-color="#e457c2" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#e457c2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cs-glow-b" cx="0.85" cy="0" r="0.75">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="#0d0a12"/>
+  <rect width="640" height="240" fill="url(#cs-glow-a)"/>
+  <rect width="640" height="240" fill="url(#cs-glow-b)"/>
+
+  <!-- ── Header bar ── -->
+  <rect width="640" height="50" fill="url(#cs-bar)"/>
+  <rect y="49" width="640" height="1.5" fill="#6e2a5e"/>
+
+  <g transform="translate(22 9) scale(1)">
+    <path d="M4 10h24v3.4a2.6 2.6 0 0 0 0 5.2V22H4v-3.4a2.6 2.6 0 0 0 0-5.2z" fill="#e457c2"/>
+    <rect x="11" y="13.6" width="2.2" height="4.8" rx="1.1" fill="#0d0a12"/>
+    <rect x="14.9" y="11.8" width="2.2" height="8.4" rx="1.1" fill="#0d0a12"/>
+    <rect x="18.8" y="13" width="2.2" height="6" rx="1.1" fill="#0d0a12"/>
+  </g>
+  <text x="60" y="30" font-family="system-ui, sans-serif" font-size="16" fill="#f2edf7">Concert <tspan font-weight="800" fill="#e457c2">Snooper</tspan></text>
+  <text x="472" y="29" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e457c2">Dashboard</text>
+  <text x="556" y="29" font-family="system-ui, sans-serif" font-size="13" fill="#9d92b3">Artists</text>
+  <text x="604" y="29" font-family="system-ui, sans-serif" font-size="13" fill="#9d92b3">Venues</text>
+
+  <!-- ── Tab pills ── -->
+  <rect x="22" y="66" width="66" height="26" rx="13" fill="#171221" stroke="#e457c2" stroke-width="1.3"/>
+  <text x="55" y="83" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#f2edf7">For you</text>
+  <rect x="96" y="66" width="56" height="26" rx="13" fill="#171221" stroke="#2e2542"/>
+  <text x="124" y="83" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9d92b3">Music</text>
+  <rect x="160" y="66" width="66" height="26" rx="13" fill="#171221" stroke="#2e2542"/>
+  <text x="193" y="83" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9d92b3">Comedy</text>
+  <rect x="234" y="66" width="72" height="26" rx="13" fill="#171221" stroke="#2e2542"/>
+  <text x="270" y="83" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9d92b3">Podcasts</text>
+  <rect x="314" y="66" width="92" height="26" rx="13" fill="#171221" stroke="#2e2542"/>
+  <text x="360" y="83" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#9d92b3">Venue feeds</text>
+
+  <!-- ── Card 1: onsale soon, the one the snoop is waiting on ── -->
+  <rect x="22" y="106" width="596" height="72" rx="12" fill="url(#cs-card)" stroke="#2e2542"/>
+  <rect x="22" y="106" width="3" height="72" rx="1.5" fill="#e457c2"/>
+  <circle cx="52" cy="142" r="16" fill="#6e2a5e"/>
+  <text x="52" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">V</text>
+  <text x="80" y="130" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">Velvet Antler</text>
+  <text x="80" y="147" font-family="system-ui, sans-serif" font-size="11.5" fill="#9d92b3">Larkspur Hall &#183; 11-06-2026 &#183; with <tspan fill="#e457c2" font-weight="600">Moth Radio</tspan>, Glass Divide</text>
+  <text x="80" y="164" font-family="system-ui, sans-serif" font-size="11.5" fill="#f0b13e">on sale Fri 10:00 AM</text>
+  <rect x="452" y="128" width="88" height="26" rx="8" fill="#0d0a12" stroke="#e457c2"/>
+  <text x="496" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#e457c2">Tickets</text>
+  <text x="565" y="147" font-family="system-ui, sans-serif" font-size="15" fill="#9d92b3">&#9734;</text>
+
+  <!-- ── Card 2: on sale now ── -->
+  <rect x="22" y="188" width="596" height="72" rx="12" fill="url(#cs-card)" stroke="#2e2542"/>
+  <circle cx="52" cy="224" r="16" fill="#3a2f52"/>
+  <text x="52" y="229" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">N</text>
+  <text x="80" y="212" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">Neon Marrow</text>
+  <text x="80" y="229" font-family="system-ui, sans-serif" font-size="11.5" fill="#9d92b3">The Colfax Room &#183; 11-21-2026</text>
+  <text x="80" y="246" font-family="system-ui, sans-serif" font-size="11.5" fill="#55d98a">on sale</text>
+  <rect x="452" y="210" width="88" height="26" rx="8" fill="#0d0a12" stroke="#e457c2"/>
+  <text x="496" y="227" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#e457c2">Tickets</text>
+  <text x="565" y="229" font-family="system-ui, sans-serif" font-size="15" fill="#e457c2">&#9733;</text>
+
+  <!-- ── Card 3: just announced. Runs under the icon corner, so every label
+       stays left of x 536. ── -->
+  <rect x="22" y="270" width="596" height="72" rx="12" fill="url(#cs-card)" stroke="#2e2542"/>
+  <circle cx="52" cy="306" r="16" fill="#284a3a"/>
+  <text x="52" y="311" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">G</text>
+  <text x="80" y="294" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#f2edf7">Static Peaks</text>
+  <text x="80" y="311" font-family="system-ui, sans-serif" font-size="11.5" fill="#9d92b3">Gold Line Theater &#183; 12-04-2026</text>
+  <text x="80" y="328" font-family="system-ui, sans-serif" font-size="11.5" fill="#9d92b3">announced</text>
+  <!-- source badges: how the app shows where a show was seen -->
+  <rect x="300" y="296" width="86" height="17" rx="8.5" fill="#0d0a12" stroke="#2e2542"/>
+  <text x="343" y="308" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="0.5" fill="#9d92b3">TICKETMASTER</text>
+  <rect x="392" y="296" width="66" height="17" rx="8.5" fill="#0d0a12" stroke="#2e2542"/>
+  <text x="425" y="308" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="0.5" fill="#9d92b3">JAMBASE</text>
+  <rect x="464" y="296" width="66" height="17" rx="8.5" fill="#0d0a12" stroke="#2e2542"/>
+  <text x="497" y="308" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" letter-spacing="0.5" fill="#9d92b3">SEATGEEK</text>
+</svg>

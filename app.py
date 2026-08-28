@@ -75,6 +75,21 @@ PROJECTS = [
         ],
     },
     {
+        "name": "Concert Snooper",
+        "description": "Concert watcher that follows your artists and venues and alerts the moment shows are announced or go on sale.",
+        "url": "https://concerts.greendonut.net",
+        "image": "concertsnooper-banner.svg",
+        "icon": "concertsnooper-icon.svg",
+        "color": "magenta",
+        "tech": ["Flask", "SQLite", "Spotify API", "Ticketmaster API", "Gunicorn"],
+        "features": [
+            "One-tap Spotify import of your artists",
+            "Merges five ticket sources into one feed",
+            "Announce, onsale-scheduled, and on-sale-now alerts",
+            "Openers matched too, not just headliners",
+        ],
+    },
+    {
         "name": "Green Flips",
         "description": "Real-time Grand Exchange flip tracker for Old School RuneScape.",
         "url": "https://flips.greendonut.net",
